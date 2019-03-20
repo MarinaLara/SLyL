@@ -8,7 +8,7 @@
 				<div class="col-lg-12">
 					<div class="box box-solid">
 						<div class="box-header with-border">
-							<center> <h3 class="box-title">Bienvenido <?= $nombre; ?> por favor seleccione la empresa en la que desea trabajar en la seccion empresas</h3></center>
+							<center> <h3 class="box-title">Bienvenido <?= $nombre; ?> </h3></center>
 						</div>
 						<div class="box-body">
 							

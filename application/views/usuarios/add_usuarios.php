@@ -1,3 +1,4 @@
+<script>var base_url = '<?php echo base_url() ?>';</script>
 <div class="content-wrapper">
 	<section class="content-header">
       <h1>
@@ -48,29 +49,29 @@
 						 			<label>Confirmar Constraseña:</label>
 						 			<input type="password" class="form-control" id="confir_password" name="confir_password" placeholder="CONFIRMAR CONTRASEÑA" maxlength="150" required>
 						 		</div>			 			
-						 		<!--<div class="col-lg-4">
-                                    <label >Empresas:</label>
-                                    <select class="form-control select2" id="select_empresas" name="select_empresas" required>
-                                    	<option value >SELECCIONAR UNA EMPRESA</option>
-                                        <?php foreach ($DATA_EMPRESAS as $single_key) { ?>
-                                            <option value="<?= $single_key->id_empresa; ?>"><?= $single_key->razonSocial; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>-->
                                 <div class="col-lg-2">
-                                    <label>Niveles:</label>
+                                    <label>Departamento:</label>
                                     <select class="form-control select2" id="select_nivel" name="select_nivel" required>
-                                        <option value >SELECCIONAR UN NIVEL</option>
-                                            <?php foreach ($DATA_NIVELES as $single_key) { ?>
-                                                <option value="<?= $single_key->id_nivel_usuario; ?>"><?= $single_key->descripcion; ?></option>
-                                            <?php } ?>
+                                        <option value >SELECCIONAR UN DEPARTAMENTO</option>
+		                                <?php
+		                                    if($DATA_NIVELES != FALSE)
+		                                    {
+		                                        foreach ($DATA_NIVELES->result() as $row) 
+		                                        {
+		                                            echo '<option value="'.$row->id_nivel.'">';
+		                                                echo $row->departamento;
+		                                            echo '</option>';
+		                                    
+		                                        } 
+		                                    }                                    
+		                                ?>
                                     </select>
                                 </div>
 			 				</div>
 
 						 	<div class="row col-lg-3" style="margin-top: 15px;">
 						 		<button type="submit" class="btn btn-primary">Guardar Usuario</button>
-						 		<a type="button" href="<?=base_url()?>usuarios" class="btn btn-default">Cancelar</a>
+						 		<a type="button" href="<?=base_url()?>index.php/usuarios" class="btn btn-default">Cancelar</a>
 						 	</div>
 					 	</form>
 					</div>

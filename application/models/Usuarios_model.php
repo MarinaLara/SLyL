@@ -9,21 +9,12 @@ class Usuarios_model extends CI_Model {
         parent::__construct();
     }
 
-    public function get_usuarios($cliente)
+    public function get_usuarios()
     {
-        $this->db->select('usuarios.id_usuario, usuarios.usuario_email, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.id_nivel, usuarios.contrasena, nivel_usuario.descripcion as nivel, empresas.razonSocial, empresas.rfc');
+        $this->db->select('id_usuario, usuario_email, nombre, apellido_p, apellido_m, usuarios.id_nivel, departamento, contrasena');
         $this->db->from('usuarios');
-        $this->db->join('nivel_usuario','usuarios.id_nivel = nivel_usuario.id_nivel_usuario');
-        $this->db->join('empresas','usuarios.id_empresa = empresas.id_empresa');
+        $this->db->join('cat_niveles ctn', 'ctn.id_nivel = usuarios.id_nivel');
         $this->db->where('usuarios.activo',1);
-        if($cliente == true)
-        {
-            $this->db->where('nivel_usuario.id_nivel_usuario',4);
-        }
-        else
-        {
-            $this->db->where('nivel_usuario.id_nivel_usuario <',4);
-        }
         $this->db->order_by('id_usuario','asc');
 
 
@@ -31,6 +22,20 @@ class Usuarios_model extends CI_Model {
         if($query->num_rows() > 0)
         {
             return $query->result();
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
+    public function get_niveles()
+    {
+        $query = $this->db->get('cat_niveles');
+
+        if($query->num_rows() > 0)
+        {
+            return $query;
         }
         else
         {
@@ -46,10 +51,9 @@ class Usuarios_model extends CI_Model {
     public function get_usuarios_by_id($id_usuario)
     {
 
-        $this->db->select('usuarios.id_usuario, usuarios.usuario_email, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.id_nivel, usuarios.contrasena, nivel_usuario.descripcion as nivel , empresas.id_empresa');
+        $this->db->select('usuarios.id_usuario, usuarios.usuario_email, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.id_nivel, usuarios.contrasena');
         $this->db->from('usuarios');
-        $this->db->join('nivel_usuario','usuarios.id_nivel = nivel_usuario.id_nivel_usuario');
-        $this->db->join('empresas','usuarios.id_empresa = empresas.id_empresa');
+        $this->db->join('cat_niveles','usuarios.id_nivel = cat_niveles.id_nivel');
         $this->db->where('usuarios.activo',1);
         $this->db->where('usuarios.id_usuario',$id_usuario); 
         

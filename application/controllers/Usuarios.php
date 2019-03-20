@@ -7,18 +7,14 @@ class Usuarios extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Usuarios_model');
-		$this->load->model('Catalogos_model');
 	} 
 
 	public function index()
 	{
 		$data = array(
 			//PARAMETRO FALSE CUANDO NO ES CLIENTE TRUE CUANDO SI LO ES
-			'DATA_USUARIOS' => $this->Usuarios_model->get_usuarios(false),
-			//PARAMETRO FALSE CUANDO NO ES CLIENTE TRUE CUANDO SI LO ES
-			'DATA_NIVELES' => $this->Catalogos_model->get_niveles(false),
-			//PARAMETRO FALSE CUANDO NO ES CLIENTE TRUE CUANDO SI LO ES
-			'DATA_EMPRESAS' => $this->Catalogos_model->get_empresas(false),
+			'DATA_USUARIOS' => $this->Usuarios_model->get_usuarios(),
+			'DATA_NIVELES' => $this->Usuarios_model->get_niveles(),
 		);
 
 		$this->load->view('headers/librerias');
@@ -30,9 +26,7 @@ class Usuarios extends CI_Controller {
 	public function add_user()
 	{
 		$data = array(
-			'DATA_USUARIOS' => $this->Usuarios_model->get_usuarios(false),
-			'DATA_NIVELES' => $this->Catalogos_model->get_niveles(false),
-			'DATA_EMPRESAS' => $this->Catalogos_model->get_empresas(false),
+			'DATA_NIVELES' => $this->Usuarios_model->get_niveles(),
 		);
 
 		$this->load->view('headers/librerias');
@@ -51,7 +45,6 @@ class Usuarios extends CI_Controller {
 				'apellido_m' => trim($this->input->post('apellido_m')),
 				'contrasena' => trim($this->input->post('contrasena')),
 				'id_nivel' => trim($this->input->post('id_nivel')),
-				'id_empresa' => 1,
 			);
 			$this->Usuarios_model->insert_usuarios($data);
 			echo json_encode($data);

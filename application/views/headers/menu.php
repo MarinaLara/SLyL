@@ -7,8 +7,8 @@
 ?>
 
 <header class="main-header">
-    <a  href="<?=base_url()?>main" class="logo"> 
-        <span class="logo-mini"><b>GPSM</b></span>
+    <a  href="<?=base_url()?>index.php/main" class="logo"> 
+        <span class="logo-mini"><b>LyL</b></span>
         <span class="logo-lg"><b>BIENVENIDO</b></span>
     </a>
     <nav class="navbar navbar-static-top">
@@ -97,7 +97,7 @@
             <li class="treeview" >
                 <a href="#"><i class="fa fa-gears"></i><span>Administrar</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                 <ul class="treeview-menu">
-                    <li><a href="<?=base_url()?>usuarios"><i class="fa fa-user-plus"></i> Cuentas de Usuarios</a></li>
+                    <li><a href="<?=base_url()?>index.php/usuarios"><i class="fa fa-user-plus"></i> Cuentas de Usuarios</a></li>
                 </ul>
             </li>
             <?php
