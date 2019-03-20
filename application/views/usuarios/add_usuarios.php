@@ -51,17 +51,18 @@
 						 		</div>			 			
                                 <div class="col-lg-2">
                                     <label>Departamento:</label>
-                                    <select class="form-control select2" id="select_nivel" name="select_nivel" required>
+                                    <select class="form-control" id="select_nivel" name="select_nivel" required>
                                         <option value >SELECCIONAR UN DEPARTAMENTO</option>
 		                                <?php
 		                                    if($DATA_NIVELES != FALSE)
 		                                    {
 		                                        foreach ($DATA_NIVELES->result() as $row) 
 		                                        {
-		                                            echo '<option value="'.$row->id_nivel.'">';
-		                                                echo $row->departamento;
-		                                            echo '</option>';
-		                                    
+		                                        	if($row->departamento != 'ROOT'){
+			                                            echo '<option value="'.$row->id_nivel.'">';	                                               
+		                                                	echo $row->departamento;
+		                                            	echo '</option>';
+		                                    		}
 		                                        } 
 		                                    }                                    
 		                                ?>
