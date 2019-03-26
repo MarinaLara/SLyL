@@ -3,7 +3,7 @@ var usuarios = {
     add_usuario: function(){
         $('#agregar_usuarios').on('submit', function(form){
             form.preventDefault();
-
+            //var base_url = '<?php echo base_url() ?>';
             var data = {
                 usuario_email : $('#txt_user').val(), 
                 nombre : $('#txt_nombre').val(), 
@@ -11,8 +11,8 @@ var usuarios = {
                 apellido_m : $('#txt_apellido_m').val(), 
                 contrasena : $('#confir_password').val(), 
                 id_nivel : $('#select_nivel').val(), 
-                id_empresa : $('#select_empresas').val(), 
             }
+            console.log(base_url);
 
             cargar_ajax.run_server_ajax('usuarios/crear_usuarios', data);
             swal({
@@ -21,7 +21,7 @@ var usuarios = {
                 type: 'success',
                 closeOnConfirm: false
             },function(){
-                location.reload()
+                window.location.assign(base_url + 'usuarios');
             });
         });
     },
@@ -52,7 +52,6 @@ var usuarios = {
                 	apellido_m: $('#txt_apellido_m_editar').val(),
                 	usuario: $('#txt_user_editar').val(), 
                 	id_nivel: $('#select_nivel_editar').val(),
-                    responsables_empresa: $('#responsables_empresa').val(),
                 }
                 
                 

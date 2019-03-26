@@ -11,9 +11,9 @@ class Main_model extends CI_Model {
 
     function auntenticar($usuario,$password)
     {
-        $this->db->select('usuarios.id_usuario, usuarios.usuario_email, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.id_nivel, usuarios.contrasena,empresas.razonSocial,usuarios.id_empresa');
+        $this->db->select('usuarios.id_usuario, usuarios.usuario_email, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.id_nivel, usuarios.contrasena');
         $this->db->from('usuarios');
-        $this->db->join('empresas','empresas.id_empresa = usuarios.id_empresa','left');
+        //$this->db->join('empresas','empresas.id_empresa = usuarios.id_empresa','left');
         $this->db->where('usuarios.activo',1);
         $this->db->where('usuarios.usuario_email',$usuario);
         $this->db->where('usuarios.contrasena',$password);

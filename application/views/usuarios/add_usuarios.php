@@ -1,11 +1,12 @@
+<script>var base_url = '<?php echo base_url() ?>';</script>
 <div class="content-wrapper">
 	<section class="content-header">
       <h1>
         CREACIÓN DE USUARIOS DEL SISTEMA
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li><a href="#">Usuarios</a></li>
+        <li><u><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></u></li>
+        <li><u><a href="#">Usuarios</a></u></li>
       </ol>
     </section>
 	<section class="content">
@@ -48,29 +49,30 @@
 						 			<label>Confirmar Constraseña:</label>
 						 			<input type="password" class="form-control" id="confir_password" name="confir_password" placeholder="CONFIRMAR CONTRASEÑA" maxlength="150" required>
 						 		</div>			 			
-						 		<!--<div class="col-lg-4">
-                                    <label >Empresas:</label>
-                                    <select class="form-control select2" id="select_empresas" name="select_empresas" required>
-                                    	<option value >SELECCIONAR UNA EMPRESA</option>
-                                        <?php foreach ($DATA_EMPRESAS as $single_key) { ?>
-                                            <option value="<?= $single_key->id_empresa; ?>"><?= $single_key->razonSocial; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>-->
                                 <div class="col-lg-2">
-                                    <label>Niveles:</label>
-                                    <select class="form-control select2" id="select_nivel" name="select_nivel" required>
-                                        <option value >SELECCIONAR UN NIVEL</option>
-                                            <?php foreach ($DATA_NIVELES as $single_key) { ?>
-                                                <option value="<?= $single_key->id_nivel_usuario; ?>"><?= $single_key->descripcion; ?></option>
-                                            <?php } ?>
+                                    <label>Departamento:</label>
+                                    <select class="form-control" id="select_nivel" name="select_nivel" required>
+                                        <option value >SELECCIONAR UN DEPARTAMENTO</option>
+		                                <?php
+		                                    if($DATA_NIVELES != FALSE)
+		                                    {
+		                                        foreach ($DATA_NIVELES->result() as $row) 
+		                                        {
+		                                        	if($row->departamento != 'ROOT'){
+			                                            echo '<option value="'.$row->id_nivel.'">';	                                               
+		                                                	echo $row->departamento;
+		                                            	echo '</option>';
+		                                    		}
+		                                        } 
+		                                    }                                    
+		                                ?>
                                     </select>
                                 </div>
 			 				</div>
 
 						 	<div class="row col-lg-3" style="margin-top: 15px;">
 						 		<button type="submit" class="btn btn-primary">Guardar Usuario</button>
-						 		<a type="button" href="<?=base_url()?>usuarios" class="btn btn-default">Cancelar</a>
+						 		<a type="button" href="<?=base_url()?>index.php/usuarios" class="btn btn-default" >Cancelar</a>
 						 	</div>
 					 	</form>
 					</div>
