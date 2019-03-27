@@ -28,10 +28,11 @@
 						 			<label>Apellido Paterno:</label>
 									<input type="text" class="form-control" required id="txt_apellido_p" name="txt_apellido_p" placeholder="APELLIDO PATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
-
+						 	</div>
+						 	<div class="form group" style="margin-left: -15px">
 						 		<div class="col-lg-2">
 						 			<label>Apellido Materno:</label>
-									<input type="text" class="form-control" required id="txt_apellido_m" name="txt_apellido_m" placeholder="APELLIDO MATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
+									<input type="text" class="form-control" id="txt_apellido_m" name="txt_apellido_m" placeholder="APELLIDO MATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
 
 						 		<div class="col-lg-3">
@@ -39,8 +40,8 @@
 									<input type="email" class="form-control" id=txt_user name="txt_user" placeholder="CORREO ELECTRONICO" maxlength="150" required>
 						 		</div>					 			
 						 	</div>
-
-					 		<div class="form-group" style="margin-top: 45px;">
+						 	<br/><br/><br/><br/>
+					 		<div class="form-group" style="margin-top: 2px;">
 					 			<div class="col-lg-2">
 						 			<label>Constraseña:</label>
 						 			<input type="password" class="form-control" id="password" name="password" placeholder="CONTRASEÑA" maxlength="150" required>
@@ -48,8 +49,10 @@
 						 		<div class="col-lg-2">
 						 			<label>Confirmar Constraseña:</label>
 						 			<input type="password" class="form-control" id="confir_password" name="confir_password" placeholder="CONFIRMAR CONTRASEÑA" maxlength="150" required>
-						 		</div>			 			
-                                <div class="col-lg-2">
+						 		</div>	
+						 	</div>
+						 	<div class="form-group">		 			
+                                <div class="col-lg-3">
                                     <label>Departamento:</label>
                                     <select class="form-control" id="select_nivel" name="select_nivel" required>
                                         <option value >SELECCIONAR UN DEPARTAMENTO</option>

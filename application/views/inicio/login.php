@@ -120,11 +120,6 @@
 
                     <div class="card-header p-3 mb-2 bg-primary text-white";>
                         <h3 class="Text-Uppercase" style="font-family: 'Arial';">Iniciar Sesion</h3>
-                        <div class="d-flex justify-content-end social_icon">
-                            <span><i class="fab fa-facebook-square"></i></span>
-                            <span><i class="fab fa-google-plus-square"></i></span>
-                            <span><i class="fab fa-twitter-square"></i></span>
-                        </div>
                     </div>
                     <div class="card-body p-3 mb-2 bg-primary text-white">
                         <form id="login" name="login" action="<?=base_url()?>index.php/main/login" method="post">
