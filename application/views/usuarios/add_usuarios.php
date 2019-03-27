@@ -35,7 +35,7 @@
 									<input type="text" class="form-control" id="txt_apellido_m" name="txt_apellido_m" placeholder="APELLIDO MATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
 
-						 		<div class="col-lg-3">
+						 		<div class="col-lg-2" style="margin-left: 3px">
 						 			<label>Correo:</label>
 									<input type="email" class="form-control" id=txt_user name="txt_user" placeholder="CORREO ELECTRONICO" maxlength="150" required>
 						 		</div>					 			
@@ -52,7 +52,7 @@
 						 		</div>	
 						 	</div>
 						 	<div class="form-group">		 			
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label>Departamento:</label>
                                     <select class="form-control" id="select_nivel" name="select_nivel" required>
                                         <option value >SELECCIONAR UN DEPARTAMENTO</option>
