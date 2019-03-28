@@ -12,12 +12,12 @@
 
 <div class="content-wrapper">
 	<section class="content-header">
-      <h1>
-        LISTADO DE USUARIOS
+      <h1 class="Display1">
+        USUARIOS REGISTRADOS
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li><a href="#">Usuarios</a></li>
+        <li><u><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
+        <li><u><a href="#">Usuarios</a></u></li>
       </ol>
     </section>
 	<section class="content">
@@ -157,7 +157,7 @@
 	 				<hr>
 				 	<div class="row modal-footer" style="margin-top: 10px;">
 	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-	                    <button type="submit" class="btn btn-primary">Guardar</button>
+	                    <button type="submit" class="btn btn-primary" style="background-color: #62374e">Guardar</button>
 	                </div>
 				</form> 
             </div>

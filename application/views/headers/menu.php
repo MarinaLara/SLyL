@@ -11,20 +11,22 @@
         <span class="logo-mini"><b>LyL</b></span>
         <span class="logo-lg"><b>BIENVENIDO</b></span>
     </a>
-    <nav class="navbar navbar-static-top">
+	<div id ="logo">
+	</div>
+    <nav class="navbar navbar-static-top navbar navbar-light">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a> 
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
+        <div class="navbar-custom-menu navbar navbar-light">
+            <ul class="nav navbar-nav navbar navbar-light">
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="hidden-xs"><?php echo $nombre; ?></span></a>
 
-                    <ul class="dropdown-menu" >
-                        <li class="user-header" style="height: 125px;">
+                    <ul class="dropdown-menu">
+                        <li class="user-header" style="height: 125px">
                             <p>
                                 <br>Usuario: <?php echo $usuario; ?>
                             </p>
@@ -34,7 +36,7 @@
                                 <button data-toggle="modal" data-target="#modal_modificar_pass" class="btn btn-default btn-flat">Contraseña</button>
                             </div>
                             <div class="pull-right">
-                                <a href="<?=base_url()?>main/logout" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                                <a href="<?=site_url()?>index.php/main/login" class="btn btn-default btn-flat">Cerrar Sesion</a>
                             </div>
                         </li>
                     </ul>
@@ -74,8 +76,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary shadow p-3 mb-5 bg-white rounded">Enviar</button>
+                        <button type="button" class="btn btn-white shadow p-3 mb-5 bg-white rounded" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form> 
             </div>

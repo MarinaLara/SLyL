@@ -16,7 +16,7 @@ class Main extends CI_Controller {
 			$this->load->view('headers/librerias');
 			$this->load->view('headers/menu');
 			$this->load->view('inicio/inicio');
-			$this->load->view('footers/librerias'); 
+			$this->load->view('footers/librerias');
 		}else
 		{
 			$script = '';
