@@ -33,7 +33,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ROOT', '0');
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ADMINISTRADOR', '1');
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('CONTABILIDAD', '2');
-INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('VENTAS', '3');
+INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('DISEÑO', '3');
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('VENTAS', '4');
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('PRODUCCIÓN', '5');
 

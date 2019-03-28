@@ -1,10 +1,22 @@
+<?php
+	if($DATA_NIVELES != FALSE)
+	{
+		foreach ($DATA_NIVELES->result() as $row) 
+		{
+			$id_nivel = $row->id_nivel;
+			$departamento = $row->departamento;
+			$nivel_usuario = $row->nivel_usuario;
+		}
+	} 
+?>
+
 <div class="content-wrapper">
 	<section class="content-header">
       <h1>
         LISTADO DE USUARIOS
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li><a href="#">Usuarios</a></li>
       </ol>
     </section>
@@ -14,7 +26,7 @@
 	          	<div class="box">
 		            <div class="box-header">
 		            	<div class="col-lg-offset-10">
-		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>usuarios/add_user"><i class="fa fa-plus"></i> Nuevo Usuario</a>
+		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>index.php/usuarios/add_user"><i class="fa fa-plus"></i> Nuevo Usuario</a>
 		              	</div>
 			        </div>
 			    </div>
@@ -26,8 +38,7 @@
 									<th><center>#</center></th>
 									<th><center>Usuario</center></th>
 									<th><center>Nombre</center></th>
-									<th><center>Nivel</center></th>
-									<th><center>Empresa</center></th>
+									<th><center>Departamento</center></th>
 									<th class="no-sort"><center>Opciones</center></th>
 								</tr>
 							</thead>
@@ -39,13 +50,17 @@
 										<td><center><?= $row->id_usuario;?></center></td>
 										<td><center><?= $row->usuario_email;?></center></td>
 										<td><center><?= $row->nombre.' '.$row->apellido_p.' '.$row->apellido_m; ?></center></td>
-										<td><center><?= $row->nivel;?></center></td>
 										<td>
-											<p> 
-												<b>Nombre: </b> <?= $row->razonSocial;?> </br>
-												<b>RFC: </b> <?= $row->rfc;?>
-											</p>
+											<center>
+											<?php
+											if($row->departamento != 'ROOT')
+												echo $row->departamento;
+											else
+												echo 'SISTEMAS';
+											?>
+											</center>
 										</td>
+
 										<td>
 										<?php
 										if($row->id_nivel != 1)
@@ -110,10 +125,24 @@
 				 		</div>
 				 		<div class="col-lg-4">
                             <label >Niveles:</label>
-                            <select class="form-control select2" style="width: 100%;" id="select_nivel_editar" name="select_nivel_editar" required>
-                                    <?php foreach ($DATA_NIVELES as $single_key) { ?>
-                                        <option value="<?= $single_key->id_nivel_usuario; ?>"><?= $single_key->descripcion; ?></option>
-                                    <?php } ?>
+                            <select class="form-control" style="width: 100%;" id="select_nivel_editar" name="select_nivel_editar" required>
+	                               <?php
+	                                if($DATA_NIVELES != FALSE)
+		                            {		                                
+		                                foreach ($DATA_NIVELES->result() as $row)
+		                                {
+		                                    echo '<option value="'.$row->id_nivel.'"';
+		                                    if($row->id_nivel == $id_nivel)
+		                                    {
+		                                        echo ' selected';
+		                                    }
+		                                    echo '>';
+		                                        echo $row->departamento;
+		                                    echo '</option>';                                
+		                                }
+		                            
+		                            }                                      
+	                            ?>
                             </select>
                         </div>
 				 		<!--<div class="form-group col-lg-7">

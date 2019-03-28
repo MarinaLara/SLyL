@@ -45,8 +45,6 @@ class Main extends CI_Controller {
 				$apellido_m = $row->apellido_m;
 				$password = $row->contrasena;
 				$nivel = $row->id_nivel;
-				$empresa = $row->razonSocial;
-				$empresa_id = $row->id_empresa;
 			}
 			$newdata = array(
 				'id_usuario' => $id_usuario,
@@ -57,8 +55,6 @@ class Main extends CI_Controller {
 				'password' => $password,
 				'nivel' => $nivel,
 				'logueado'=> 1,
-				'empresa_usuario' => $empresa,
-				'empresa_id' => $empresa_id,
 			);
 
 			$this->session->set_userdata($newdata);
