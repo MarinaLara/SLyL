@@ -1,12 +1,25 @@
 <script>var base_url = '<?php echo base_url() ?>';</script>
+<script type="text/javascript">
+	function mess() {
+		var pass = document.getElementById("password").value;
+		var conpas = document.getElementById("confir_password").value;
+
+		if (pass != conpas) {
+			swal("Error!", "Contraseñas no coinciden!", "warning");
+			return false;
+		}else{
+			return true;
+		}
+	}
+</script>
 <div class="content-wrapper">
 	<section class="content-header">
       <h1>
         CREACIÓN DE USUARIOS DEL SISTEMA
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li><a href="#">Usuarios</a></li>
+        <li><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="<?=base_url()?>index.php/Usuarios">Usuarios</a></li>
       </ol>
     </section>
 	<section class="content">
@@ -17,7 +30,7 @@
 						<div class="panel-heading"><center><h4>AGREGAR USUARIOS</h4></center></div>
 					</div>
 					<div class="box-body">
-						<form class="form-horizontal" name="agregar_usuarios" id="agregar_usuarios">
+						<form class="form-horizontal" onsubmit="return mess()" name="agregar_usuarios" id="agregar_usuarios">
 				 			<div class="form-group">				 				
 						 		<div class="col-lg-2">	
 						 			<label>Nombre:</label>
@@ -31,7 +44,7 @@
 
 						 		<div class="col-lg-2">
 						 			<label>Apellido Materno:</label>
-									<input type="text" class="form-control" required id="txt_apellido_m" name="txt_apellido_m" placeholder="APELLIDO MATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
+									<input type="text" class="form-control" id="txt_apellido_m" name="txt_apellido_m" placeholder="APELLIDO MATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
 
 						 		<div class="col-lg-3">
