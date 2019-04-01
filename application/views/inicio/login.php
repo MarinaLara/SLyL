@@ -122,7 +122,7 @@
                         <h3 class="Text-Uppercase" style="font-family: 'Arial';">Iniciar Sesion</h3>
                     </div>
                     <div class="card-body p-3 mb-2 bg-primary text-white">
-                        <form id="login" name="login" action="<?=base_url()?>index.php/main/login" method="post">
+                        <form id="login" name="login" action="<?=base_url()?>main/login" method="post">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>

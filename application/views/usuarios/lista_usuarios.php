@@ -16,7 +16,7 @@
         USUARIOS REGISTRADOS
       </h1>
       <ol class="breadcrumb">
-        <li><u><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
+        <li><u><a href="<?=base_url()?>main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
         <li><u><a href="#">Usuarios</a></u></li>
       </ol>
     </section>
@@ -26,7 +26,7 @@
 	          	<div class="box">
 		            <div class="box-header">
 		            	<div class="col-lg-offset-10">
-		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>index.php/usuarios/add_user"><i class="fa fa-plus"></i> Nuevo Usuario</a>
+		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>usuarios/add_user"><i class="fa fa-plus"></i> Nuevo Usuario</a>
 		              	</div>
 			        </div>
 			    </div>
@@ -157,7 +157,7 @@
 	 				<hr>
 				 	<div class="row modal-footer" style="margin-top: 10px;">
 	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-	                    <button type="submit" class="btn btn-primary" style="background-color: #62374e">Guardar</button>
+	                    <button type="submit" class="btn btn-primary">Guardar</button>
 	                </div>
 				</form> 
             </div>

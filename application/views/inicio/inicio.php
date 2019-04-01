@@ -1,7 +1,5 @@
 <?php
 	$nombre = $this->session->userdata('nombre').' '.$this->session->userdata('apellido_p').' '.$this->session->userdata('apellido_m');
-
-	
 ?>
 
 	

@@ -3,26 +3,37 @@ var usuarios = {
     add_usuario: function(){
         $('#agregar_usuarios').on('submit', function(form){
             form.preventDefault();
-            //var base_url = '<?php echo base_url() ?>';
-            var data = {
-                usuario_email : $('#txt_user').val(), 
-                nombre : $('#txt_nombre').val(), 
-                apellido_p : $('#txt_apellido_p').val(), 
-                apellido_m : $('#txt_apellido_m').val(), 
-                contrasena : $('#confir_password').val(), 
-                id_nivel : $('#select_nivel').val(), 
-            }
-            console.log(base_url);
+            
+            var contrasena1 = $('#password').val();
+            var contrasena2 = $('#confir_password').val();
 
-            cargar_ajax.run_server_ajax('usuarios/crear_usuarios', data);
-            swal({
-                title: 'CORRECTO',
-                text: 'SE AGREGO CORRECTAMENTE EL USUARIO',
-                type: 'success',
-                closeOnConfirm: false
-            },function(){
-                window.location.assign(base_url + 'usuarios');
-            });
+            if(contrasena1 != contrasena2)
+            {
+                swal("Error!", "Contraseñas no coinciden!", "warning");
+            }
+            else
+            {
+                //var base_url = '<?php echo base_url() ?>';
+                var data = {
+                    usuario_email : $('#txt_user').val(), 
+                    nombre : $('#txt_nombre').val(), 
+                    apellido_p : $('#txt_apellido_p').val(), 
+                    apellido_m : $('#txt_apellido_m').val(), 
+                    contrasena : $('#confir_password').val(), 
+                    id_nivel : $('#select_nivel').val(), 
+                }
+                
+
+                cargar_ajax.run_server_ajax('usuarios/crear_usuarios', data);
+                swal({
+                    title: 'CORRECTO',
+                    text: 'SE AGREGO CORRECTAMENTE EL USUARIO',
+                    type: 'success',
+                    closeOnConfirm: false
+                },function(){
+                    window.location.assign(base_url + 'usuarios');
+                });
+            }
         });
     },
 
@@ -100,7 +111,7 @@ var usuarios = {
                 
             });
         });
-  },
+    },
 }
 jQuery(document).ready(function() { 
     usuarios.add_usuario(this);

@@ -7,7 +7,7 @@
 ?>
 
 <header class="main-header">
-    <a  href="<?=base_url()?>index.php/main" class="logo"> 
+    <a  href="<?=base_url()?>main" class="logo"> 
         <span class="logo-mini"><b>LyL</b></span>
         <span class="logo-lg"><b>BIENVENIDO</b></span>
     </a>
@@ -36,7 +36,7 @@
                                 <button data-toggle="modal" data-target="#modal_modificar_pass" class="btn btn-default btn-flat">Contraseña</button>
                             </div>
                             <div class="pull-right">
-                                <a href="<?=site_url()?>index.php/main/login" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                                <a href="<?=site_url()?>main/logout" class="btn btn-default btn-flat">Cerrar Sesion</a>
                             </div>
                         </li>
                     </ul>
@@ -55,7 +55,7 @@
                 <h4 class="modal-title">Modificar Contraseña</h4>
             </div>
             <div class="modal-body">
-                <form name="modificar_contrasena" id="modificar_contrasena"> 
+                <form name="modificar_contrasena_main" id="modificar_contrasena_main"> 
                     <input type="hidden" value="<?=$id_usuario?>" name="id_usuario" id="id_usuario">
                     <div class="row">
                         <div class="form-group col-md-8 col-md-offset-2">
@@ -99,7 +99,7 @@
             <li class="treeview" >
                 <a href="#"><i class="fa fa-gears"></i><span>Administrar</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                 <ul class="treeview-menu">
-                    <li><a href="<?=base_url()?>index.php/usuarios"><i class="fa fa-user-plus"></i> Cuentas de Usuarios</a></li>
+                    <li><a href="<?=base_url()?>usuarios"><i class="fa fa-user-plus"></i> Cuentas de Usuarios</a></li>
                 </ul>
             </li>
             <?php

@@ -18,8 +18,8 @@
         CREACIÓN DE USUARIOS DEL SISTEMA
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li><a href="<?=base_url()?>index.php/Usuarios">Usuarios</a></li>
+        <li><a href="<?=base_url()?>main"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="<?=base_url()?>Usuarios">Usuarios</a></li>
       </ol>
     </section>
 	<section class="content">
@@ -30,7 +30,7 @@
 						<div class="panel-heading"><center><h4>AGREGAR USUARIOS</h4></center></div>
 					</div>
 					<div class="box-body">
-						<form class="form-horizontal" onsubmit="return mess()" name="agregar_usuarios" id="agregar_usuarios">
+						<form class="form-horizontal"  name="agregar_usuarios" id="agregar_usuarios">
 				 			<div class="form-group">				 				
 						 		<div class="col-lg-2">	
 						 			<label>Nombre:</label>
@@ -87,8 +87,8 @@
 			 				</div>
 
 						 	<div class="row col-lg-3" style="margin-top: 15px;">
-						 		<button type="submit" class="btn btn-primary">Guardar Usuario</button>
-						 		<a type="button" href="<?=base_url()?>index.php/usuarios" class="btn btn-default">Cancelar</a>
+						 		<button id="enviarButton" name="enviarButton" type="submit" class="btn btn-primary">Guardar Usuario</button>
+						 		<a type="button" href="<?=base_url()?>Usuarios" class="btn btn-default">Cancelar</a>
 						 	</div>
 					 	</form>
 					</div>

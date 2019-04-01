@@ -137,59 +137,22 @@
 		$_curController = $this->router->fetch_class();
 		$_curAction = $this->router->fetch_method();
 		
-		switch ($_curController) {
+		switch ($_curController) 
+		{
 
 		    case 'usuarios':
 			    echo '<script src="'.base_url().'js/usuarios/usuarios.js"></script>';
+			    echo '<script src="'.base_url().'js/main/main.js"></script>';
 		    break;
 
-		    case 'clientes':
-			    echo '<script src="'.base_url().'js/clientes/clientes.js"></script>';
-		    break;
-
-		    case 'empresas':
-			    echo '<script src="'.base_url().'js/empresas/empresas.js"></script>';
-		    break;
-
-		    case 'responsables':
-			    echo '<script src="'.base_url().'js/responsables/responsables.js"></script>';
-		    break;
-
-		    case 'foda':
-			    switch ($_curAction) {
-			    	case 'index':
-		            	echo '<script src="'.base_url().'js/foda/foda.js"></script>';
-		            break;
-		            case 'add_foda':
-		            	echo '<script src="'.base_url().'js/foda/foda.js"></script>';
-		            break;
-
-		            case 'editar_foda':
-		                echo '<script src="'.base_url().'js/foda/editar_foda.js"></script>';
-		            break;
-		        }
-			break;
-
-
-			case 'stakeholders':
-			    echo '<script src="'.base_url().'js/stakeholders/stakeholders.js"></script>';
-
-		    break;
-
-		    case 'politicas_objetivos':
-			    echo '<script src="'.base_url().'js/politicas_objetivos/politicas_objetivos.js"></script>';
-
-			case 'procesos':
-			    echo '<script src="'.base_url().'js/procesos/procesos.js"></script>';
-		    break;
-
-		    case 'riesgos':
-			    echo '<script src="'.base_url().'js/riesgos/riesgos.js"></script>';
-
-		    break;
+		    default:
+		    	echo '<script src="'.base_url().'js/main/main.js"></script>';
+		    	break;
 
 		    
-		    }
+
+		    
+		}
 		?>
 
 

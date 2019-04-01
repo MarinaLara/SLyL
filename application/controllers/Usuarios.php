@@ -11,28 +11,43 @@ class Usuarios extends CI_Controller {
 
 	public function index()
 	{
-		$data = array(
-			//PARAMETRO FALSE CUANDO NO ES CLIENTE TRUE CUANDO SI LO ES
-			'DATA_USUARIOS' => $this->Usuarios_model->get_usuarios(),
-			'DATA_NIVELES' => $this->Usuarios_model->get_niveles(),
-		);
+		if($this->session->userdata('logueado') == TRUE)
+		{
+			$data = array(
+				//PARAMETRO FALSE CUANDO NO ES CLIENTE TRUE CUANDO SI LO ES
+				'DATA_USUARIOS' => $this->Usuarios_model->get_usuarios(),
+				'DATA_NIVELES' => $this->Usuarios_model->get_niveles(),
+			);
 
-		$this->load->view('headers/librerias');
-		$this->load->view('headers/menu');
-		$this->load->view('usuarios/lista_usuarios',$data);
-		$this->load->view('footers/librerias');
+			$this->load->view('headers/librerias');
+			$this->load->view('headers/menu');
+			$this->load->view('usuarios/lista_usuarios',$data);
+			$this->load->view('footers/librerias');
+		}else
+		{
+			//$script = '';
+			$this->load->view('inicio/login');
+		}
+		
 	}
 
 	public function add_user()
 	{
-		$data = array(
-			'DATA_NIVELES' => $this->Usuarios_model->get_niveles(),
-		);
+		if($this->session->userdata('logueado') == TRUE)
+		{
+			$data = array(
+				'DATA_NIVELES' => $this->Usuarios_model->get_niveles(),
+			);
 
-		$this->load->view('headers/librerias');
-		$this->load->view('headers/menu');
-		$this->load->view('usuarios/add_usuarios',$data);
-		$this->load->view('footers/librerias');
+			$this->load->view('headers/librerias');
+			$this->load->view('headers/menu');
+			$this->load->view('usuarios/add_usuarios',$data);
+			$this->load->view('footers/librerias');
+		}else
+		{
+			//$script = '';
+			$this->load->view('inicio/login');
+		}
 	}
 
 	public function crear_usuarios()
@@ -77,6 +92,21 @@ class Usuarios extends CI_Controller {
 				'apellido_p' => trim($this->input->post('apellido_p')),
 				'apellido_m' => trim($this->input->post('apellido_m')),
 				'id_nivel' => $this->input->post('id_nivel'),
+			);
+
+			$this->Usuarios_model->update_usuarios($data,$id_usuario);
+		
+		}else{
+            show_404();
+        }
+	}
+
+	public function editar_contrasena()
+	{
+		if($this->input->is_ajax_request()){
+			$id_usuario = $this->input->post('id_usuario');
+			$data = array(				
+				'contrasena' => trim($this->input->post('contrasena')),
 			);
 
 			$this->Usuarios_model->update_usuarios($data,$id_usuario);
