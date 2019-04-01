@@ -10,7 +10,8 @@
 <html>
 <head>
     
-    <title>Letras y Logos</title>
+    <title>Letras y logos</title>
+    <link href="<?=base_url()?>/images/pp.jpg" rel="shortcut icon">
    <!--Made with love by Mutiullah Samim -->
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -23,10 +24,9 @@
         @import url('https://fonts.googleapis.com/css?family=Numans');
 
         html,body{
-        
+        background-image: url('<?= base_url(); ?>template/login/fondo_login.png');
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        opacity: 80%;
         height: 100%;
         font-family: 'Numans', sans-serif;
 
@@ -42,14 +42,12 @@
         margin-top: auto;
         margin-bottom: auto;
         width: 450px;
-        background-color: #007AFF !important;
+        background-color: rgba(0,0,0,0.5) !important;
         }
 
         .social_icon span{
-        padding: 50px;
-        font-size: 30px;
-        margin-left: -85px;
-        margin-top: 13px;
+        font-size: 60px;
+        margin-left: 10px;
         color: #FFFFFF;
         }
 
@@ -95,13 +93,13 @@
 
         .login_btn{
         color: black;
-        background-color: white;
+        background-color: #FFFFFF;
         width: 150px;
         }
 
         .login_btn:hover{
-        color: 007AFF;
-        background-color: #B7CFDC;
+        color: black;
+        background-color: white;
         }
 
         .links{
@@ -113,31 +111,35 @@
         }
     </style>
 </head>
-    <body>      
-        <div class="container " >            
-            <div class="d-flex justify-content-center h-100" >
+    <body>        
+        <div class="container">            
+            <div class="d-flex justify-content-center h-100">
                 <div class="card">
-
-                    <div class="card-header p-3 mb-2 bg-primary text-white";>
-                        <h3 class="Text-Uppercase" style="font-family: 'Arial';">Iniciar Sesion</h3>
+                    <div class="card-header">
+                        <h3>Iniciar Sesion</h3>
+                        <div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
                     </div>
-                    <div class="card-body p-3 mb-2 bg-primary text-white">
+                    <div class="card-body">
                         <form id="login" name="login" action="<?=base_url()?>main/login" method="post">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="email" class="form-control" name="txt_usuario" id="txt_usuario" placeholder="User" required>
+                                <input type="email" class="form-control" name="txt_usuario" id="txt_usuario" placeholder="username" required>
                                 
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" name="txt_password" id="txt_password" placeholder="Password" required>
+                                <input type="password" class="form-control" name="txt_password" id="txt_password" placeholder="password" required>
                             </div>
                             <div class="row align-items-center remember">
-                                <input type="checkbox">Recordar Datos
+                                <input type="checkbox">Recordar...
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Iniciar Sesion" class="btn float-right login_btn">

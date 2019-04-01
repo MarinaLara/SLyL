@@ -26,8 +26,6 @@ class Main extends CI_Controller {
 
 	public function login()
 	{		
-		/*$usuario = trim($this->input->post('txt_usuario'));
-		$password = trim($this->input->post('txt_password'));*/
 		$data = array(
 			'usuario' => $this->input->post('txt_usuario',true),
 			'password' => $this->input->post('txt_password',true),
