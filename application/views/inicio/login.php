@@ -11,7 +11,7 @@
 <head>
     
     <title>Letras y logos</title>
-    <link href="<?=base_url()?>/images/pp.jpg" rel="shortcut icon">
+    <link href="<?=base_url()?>/images/fondo_chico.png" rel="shortcut icon">
    <!--Made with love by Mutiullah Samim -->
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -24,9 +24,10 @@
         @import url('https://fonts.googleapis.com/css?family=Numans');
 
         html,body{
-        background-image: url('<?= base_url(); ?>template/login/fondo_login.png');
-        background-size: 100% 100%;
+        background-image: url('<?= base_url(); ?>template/login/fondo_chico.png');
+        background-size: 60% 100%;
         background-repeat: no-repeat;
+        background-position: center;
         height: 100%;
         font-family: 'Numans', sans-serif;
 
