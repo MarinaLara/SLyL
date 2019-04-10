@@ -65,9 +65,27 @@ class Main extends CI_Controller {
 		}
 	}
 
+	public function editar_contrasena_main()
+	{
+		if($this->input->is_ajax_request()){
+			
+			$id_usuario = trim($this->input->post('id_usuario'));
+			$data = array(				
+				'contrasena' => trim($this->input->post('contrasena')),
+			);
+			var_dump($data);
+			var_dump($id_usuario);
+			$this->Main_model->update_usuarios_main($data,$id_usuario);
+		
+		}else{
+            show_404();
+        }
+	}
+
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
+
 }
