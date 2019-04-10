@@ -55,28 +55,30 @@
                 <h4 class="modal-title">Modificar Contraseña</h4>
             </div>
             <div class="modal-body">
-                <form name="modificar_contrasena_main" id="modificar_contrasena_main"> 
-                    <input type="hidden" value="<?=$id_usuario?>" name="id_usuario" id="id_usuario">
-                    <div class="row">
-                        <div class="form-group col-md-8 col-md-offset-2">
-                            <label>Nombre Usuario:</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre de usuario" value="<?=$nombre?>" maxlength="100" onKeyUp="this.value=this.value.toUpperCase();" />
+                <form name="modificar_contrasena_menu" id="modificar_contrasena_menu"> 
+                    <div class="modal-body">
+                        <input type="hidden" value="<?=$id_usuario?>" name="id_usuario" id="id_usuario">
+                        <div class="row">
+                            <div class="form-group col-md-8 col-md-offset-2">
+                                <label>Nombre Usuario:</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre de usuario" value="<?=$nombre?>" maxlength="100" onKeyUp="this.value=this.value.toUpperCase();" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-8 col-md-offset-2">
-                            <label>Constraseña Nueva:</label>
-                            <input type="password" class="form-control" name="nueva" id="nueva" placeholder="Ingrese su Contraseña" maxlength="25" />
+                        <div class="row">
+                            <div class="form-group col-md-8 col-md-offset-2">
+                                <label>Constraseña Nueva:</label>
+                                <input type="password" class="form-control" name="nueva" id="nueva" placeholder="Ingrese su Contraseña" maxlength="25" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-8 col-md-offset-2">
-                            <label>Confirmar Constraseña:</label>
-                            <input type="password" class="form-control" name="confirmacion" id="confirmacion" placeholder="Ingrese su Contraseña" maxlength="25" />
+                        <div class="row">
+                            <div class="form-group col-md-8 col-md-offset-2">
+                                <label>Confirmar Constraseña:</label>
+                                <input type="password" class="form-control" name="confirmacion" id="confirmacion" placeholder="Ingrese su Contraseña" maxlength="25" />
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary shadow p-3 mb-5 bg-white rounded">Enviar</button>
+                        <button  type="submit" class="btn btn-primary">Enviar</button>
                         <button type="button" class="btn btn-white shadow p-3 mb-5 bg-white rounded" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form> 

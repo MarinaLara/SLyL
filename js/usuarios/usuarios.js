@@ -13,7 +13,6 @@ var usuarios = {
             }
             else
             {
-                //var base_url = '<?php echo base_url() ?>';
                 var data = {
                     usuario_email : $('#txt_user').val(), 
                     nombre : $('#txt_nombre').val(), 
@@ -37,7 +36,8 @@ var usuarios = {
         });
     },
 
-	datos_editar_usuarios: function(){
+	//carga datos de editar usuarios
+    datos_editar_usuarios: function(){
         $(document).on('click','button.editar_user', function () {
             var data = {id_usuario: $(this).data('id')};            
             var response = cargar_ajax.run_server_ajax('usuarios/datos_editar_usuario', data);
@@ -53,6 +53,7 @@ var usuarios = {
         });
     },
 
+    //llegan los datos a modificar
     editar_editar_usuarios: function(){
         $("#editar_usuarios").on("submit", function (e) {
             e.preventDefault();
@@ -65,8 +66,6 @@ var usuarios = {
                 	id_nivel: $('#select_nivel_editar').val(),
                 }
                 
-                
-
                  var response = cargar_ajax.run_server_ajax('usuarios/editar_usuario', data);
                  if (response == 'false') {
                      title = "Error!";
@@ -112,10 +111,53 @@ var usuarios = {
             });
         });
     },
+
+    editar_contraseña_usu: function(){
+        $("#modificar_contrasena_menu").on("submit", function (e) {
+            e.preventDefault();
+
+            var contrasena1 = $('#nueva').val();
+            var contrasena2 = $('#confirmacion').val();
+
+           if(contrasena1 != contrasena2)
+            {
+                swal("Error!", "Contraseñas no coinciden!", "warning");
+            }
+            else
+            {
+                var data = {
+                    contrasena : $('#nueva').val(), 
+                    id_usuario: $('#id_usuario').val(),
+                }
+                
+                var response = cargar_ajax.run_server_ajax('usuarios/editar_contrasena_usu', data);
+
+                if (response == 'false') 
+                {
+                    title = "Error!";
+                    icon = "error";
+                    mensaje = "No se pudo realizar la actualicación";
+                } else {
+                    icon = "success";
+                    title = "Actualización de información";
+                    mensaje = "Se actualizo la información correctamente";
+                }
+                swal({
+                    title: title,
+                    text: mensaje,
+                    type: icon,
+                    closeOnConfirm: false
+                }, function () {
+                    location.reload(); 
+                });
+            }
+        });
+    },
 }
 jQuery(document).ready(function() { 
     usuarios.add_usuario(this);
     usuarios.datos_editar_usuarios(this);
     usuarios.editar_editar_usuarios(this);
     usuarios.eliminar_usuario(this);
-});
+    usuarios.editar_contraseña_usu(this);
+}); 

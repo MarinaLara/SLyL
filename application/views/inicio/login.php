@@ -130,14 +130,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="email" class="form-control" name="txt_usuario" id="txt_usuario" placeholder="username" required>
+                                <input type="email" maxlength="100" class="form-control" name="txt_usuario" id="txt_usuario" placeholder="username" required>
                                 
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" name="txt_password" id="txt_password" placeholder="password" required>
+                                <input type="password" maxlength="100" class="form-control" name="txt_password" id="txt_password" placeholder="password" required>
                             </div>
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Recordar...
