@@ -28,5 +28,11 @@ class Main_model extends CI_Model {
         }        
     }
 
+    public function update_usuarios_main($data,$id_usuario)
+    {
+        $this->db->where('id_usuario',$id_usuario);
+        $this->db->update('usuarios', $data);
+    }
+
 }
 ?>

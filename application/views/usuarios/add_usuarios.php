@@ -1,17 +1,5 @@
 <script>var base_url = '<?php echo base_url() ?>';</script>
-<script type="text/javascript">
-	function mess() {
-		var pass = document.getElementById("password").value;
-		var conpas = document.getElementById("confir_password").value;
 
-		if (pass != conpas) {
-			swal("Error!", "Contraseñas no coinciden!", "warning");
-			return false;
-		}else{
-			return true;
-		}
-	}
-</script>
 <div class="content-wrapper">
 	<section class="content-header">
       <h1>
@@ -32,40 +20,40 @@
 					<div class="box-body">
 						<form class="form-horizontal"  name="agregar_usuarios" id="agregar_usuarios">
 				 			<div class="form-group">				 				
-						 		<div class="col-lg-2">	
+						 		<div class="col-lg-3">	
 						 			<label>Nombre:</label>
 									<input type="text" class="form-control" required id="txt_nombre" name="txt_nombre" placeholder="NOMBRE" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
 
-						 		<div class="col-lg-2">
+						 		<div class="col-lg-3">
 						 			<label>Apellido Paterno:</label>
 									<input type="text" class="form-control" required id="txt_apellido_p" name="txt_apellido_p" placeholder="APELLIDO PATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
 						 	</div>
 						 	<div class="form group" style="margin-left: -15px">
-						 		<div class="col-lg-2">
+						 		<div class="col-lg-3">
 						 			<label>Apellido Materno:</label>
 									<input type="text" class="form-control" id="txt_apellido_m" name="txt_apellido_m" placeholder="APELLIDO MATERNO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 						 		</div>
 
-						 		<div class="col-lg-2" style="margin-left: 3px">
+						 		<div class="col-lg-3" style="margin-left: 3px">
 						 			<label>Correo:</label>
 									<input type="email" class="form-control" id=txt_user name="txt_user" placeholder="CORREO ELECTRONICO" maxlength="150" required>
 						 		</div>					 			
 						 	</div>
 						 	<br/><br/><br/><br/>
 					 		<div class="form-group" style="margin-top: 2px;">
-					 			<div class="col-lg-2">
+					 			<div class="col-lg-3">
 						 			<label>Constraseña:</label>
 						 			<input type="password" class="form-control" id="password" name="password" placeholder="CONTRASEÑA" maxlength="150" required>
 						 		</div>
-						 		<div class="col-lg-2">
+						 		<div class="col-lg-3">
 						 			<label>Confirmar Constraseña:</label>
 						 			<input type="password" class="form-control" id="confir_password" name="confir_password" placeholder="CONFIRMAR CONTRASEÑA" maxlength="150" required>
 						 		</div>	
 						 	</div>
 						 	<div class="form-group">		 			
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <label>Departamento:</label>
                                     <select class="form-control" id="select_nivel" name="select_nivel" required>
                                         <option value >SELECCIONAR UN DEPARTAMENTO</option>

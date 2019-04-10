@@ -73,6 +73,12 @@ class Usuarios_model extends CI_Model {
         $this->db->update('usuarios',$data);
     }
 
+    public function update_usuarios_usu($data,$id_usuario)
+    {
+        $this->db->where('id_usuario',$id_usuario);
+        $this->db->update('usuarios', $data);
+    }
+
     public function delete_usuarios($id_usuarios)
     {
         $this->db->set('activo', 0);

@@ -101,15 +101,16 @@ class Usuarios extends CI_Controller {
         }
 	}
 
-	public function editar_contrasena()
+	public function editar_contrasena_usu()
 	{
 		if($this->input->is_ajax_request()){
-			$id_usuario = $this->input->post('id_usuario');
+			
+			$id_usuario = trim($this->input->post('id_usuario'));
 			$data = array(				
 				'contrasena' => trim($this->input->post('contrasena')),
 			);
 
-			$this->Usuarios_model->update_usuarios($data,$id_usuario);
+			$this->Usuarios_model->update_usuarios_usu($data,$id_usuario);
 		
 		}else{
             show_404();
