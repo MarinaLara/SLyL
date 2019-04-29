@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$root = "http://".$_SERVER['HTTP_HOST']."/SLYL";
+$root = "http://".$_SERVER['HTTP_HOST']."/SLyL";
 $config['base_url'] = $root;
 
 /*	

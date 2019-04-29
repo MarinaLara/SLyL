@@ -88,4 +88,62 @@ class Main extends CI_Controller {
 		redirect(base_url());
 	}
 
+
+	public function recordarContrasena()
+	{
+		$this->load->view('inicio/restablecer_contrasena');
+	}
+
+	public function enviarContrasena()
+	{
+		if(isset($_POST['email'])) {
+		
+			$email = $_POST['email'];
+			$DATA_CORREO = $this->Main_model->get_password($email);
+
+			if($DATA_CORREO != FALSE)
+			{
+				foreach ($DATA_CORREO->result() as $row) 
+				{
+					$password = $row->contrasena;
+				}
+				
+
+			}
+			else
+			{
+				//CAMBIAR POR SWAL
+				print '<script type="text/javascript">alert("No se encontro ningun usuario con el nombre ingresado por favor revise");</script>';
+				
+			}
+
+			echo $email;
+			// Debes editar las próximas dos líneas de código de acuerdo con tus preferencias
+			$email_to = "letrasylogos@pinguinosystems.com";
+			$email_subject = "RESTABLECER CONTRASEÑA";
+			$email_from = "";
+			// Aquí se deberían validar los datos ingresados por el usuario
+			if(!isset($_POST['email'])) 
+			{
+
+				echo "<script>alert(\"Ocurrió un error y el formulario no ha sido enviado,Por favor, vuelva atrás y verifique la información ingresada\");</script>";
+				
+				die();
+			}
+
+			$email_message = "Su Contraseña es la siguiente:\n\n" . $password;
+
+
+			// Ahora se envía el e-mail usando la función mail() de PHP
+			$headers = 'From: '.$email_from."\r\n".
+			'Reply-To: '.$email_from."\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+			@mail($email_to, $email_subject, $email_message, $headers);
+
+
+			print '<script type="text/javascript">alert("Su contraseña se ha enviado correctamente al correo de destino");</script>';
+			$this->index();		
+		}
+	}
+
 }
