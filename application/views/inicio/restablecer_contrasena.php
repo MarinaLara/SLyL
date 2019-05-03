@@ -117,7 +117,7 @@
             <div class="d-flex justify-content-center h-100">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Iniciar Sesion</h3>
+                        <h3>Recordar Contraseña</h3>
                         <div class="d-flex justify-content-end social_icon">
                             <span><i class="fab fa-facebook-square"></i></span>
                             <span><i class="fab fa-google-plus-square"></i></span>
@@ -125,38 +125,16 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form id="login" name="login" action="<?=base_url()?>main/login" method="post">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <input type="email" maxlength="100" class="form-control" name="txt_usuario" id="txt_usuario" placeholder="username" required>
-                                
-                            </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <input type="password" maxlength="100" class="form-control" name="txt_password" id="txt_password" placeholder="password" required>
-                            </div>
-                            <div class="row align-items-center remember">
-                                <input type="checkbox">Recordar...
+                        <form id="login" name="login" action="<?=base_url()?>main/enviarContrasena" method="post">
+                            <div class="form-group">
+                            	 <input class="form-control" type="text" id="email" name="email" placeholder="ESCRIBA SU USUARIO AQUI">
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Iniciar Sesion" class="btn float-right login_btn">
+                            	<button type="submit" class="btn login_btn">Enviar</button>
                             </div>
+                           
+                            
                         </form>
-                    </div>
-                    <!--<div class="card-footer">
-                        <div class="d-flex justify-content-center links">
-                            ¿No estas registrado?<a href="#" style="color:#39AAF4;">Registrarse</a>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="#" style="color:#39AAF4;">Olvide mi contraseña...</a>
-                        </div>
-                    </div>-->
-                    <div class="d-flex justify-content-center">
-                        <a href="<?=base_url()?>Main/recordarContrasena" style="color:#39AAF4;">Olvide mi contraseña...</a>
                     </div>
                 </div>
             </div>
