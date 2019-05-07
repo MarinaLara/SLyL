@@ -89,6 +89,7 @@ class Main extends CI_Controller {
 		redirect(base_url());
 	}
 
+<<<<<<< HEAD
 
 	public function recordarContrasena()
 	{
@@ -152,4 +153,6 @@ class Main extends CI_Controller {
 		}
 	}
 
+=======
+>>>>>>> parent of ea28f55... #3 Envio de correo de recuperacion
 }

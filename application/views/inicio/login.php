@@ -155,9 +155,6 @@
                             <a href="#" style="color:#39AAF4;">Olvide mi contraseña...</a>
                         </div>
                     </div>-->
-                    <div class="d-flex justify-content-center">
-                        <a href="<?=base_url()?>Main/recordarContrasena" style="color:#39AAF4;">Olvide mi contraseña...</a>
-                    </div>
                 </div>
             </div>
         </div>
