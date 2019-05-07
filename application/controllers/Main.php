@@ -89,6 +89,7 @@ class Main extends CI_Controller {
 		redirect(base_url());
 	}
 
+<<<<<<< HEAD
 
 	public function recordarContrasena()
 	{
@@ -152,4 +153,6 @@ class Main extends CI_Controller {
 		}
 	}
 
+=======
+>>>>>>> parent of 6f84272... Revert "Revert "#3 Envio de correo de recuperacion""
 }
