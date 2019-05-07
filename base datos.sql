@@ -1,4 +1,3 @@
-
 CREATE DATABASE SLYL;
 use SLYL;
 

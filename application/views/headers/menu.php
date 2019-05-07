@@ -104,6 +104,9 @@
                     <li><a href="<?=base_url()?>usuarios"><i class="fa fa-user-plus"></i> Cuentas de Usuarios</a></li>
                 </ul>
             </li>
+            <li class="treeview" >
+                <li><a href="<?=base_url()?>clientes"><i class="fa fa-users"></i><span>Clientes</span></a></li>
+            </li>
             <?php
             }
             ?>
