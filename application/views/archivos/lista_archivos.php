@@ -32,12 +32,14 @@
 								<?php if($DATA_ARCHIVO != FALSE) {
 									foreach ($DATA_ARCHIVO->result() as $row) {
 								?>
-									<tr id="tr_<?= $row->id_cliente;?>" name="tr_<?= $row->id_cliente; ?>" >
-										<td><center><?= $row->id_archivo;?></center></td>
-										<td><center>
-											<?= $row->nombre_archivo;?>
-										</center></td>
-										
+									<tr id="tr_<?= $row->id_archivo;?>" name="tr_<?= $row->id_archivo; ?>" >
+										<td>
+											<center><?= $row->id_archivo;?></center>
+										</td>
+										<td>
+											<a href="<?=base_url().$row->path?>" target="_blanck"><?= $row->nombre_archivo;?></a>
+										</td>
+										<td></td>
 									</tr>
 								<?php
 									}

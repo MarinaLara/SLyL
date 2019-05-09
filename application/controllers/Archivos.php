@@ -48,38 +48,51 @@ class Archivos extends CI_Controller {
 	public function crear_archivo()
 	{
 		
-		$target_dir = base_url()."files/";
-		$target_file = $target_dir . basename($_FILES["archivo"]["name"]);
-		$uploadOk = 1;
+		//OBTENERE EL ID DE ARCHIVO 
+		$nombre_archivo = $this->input->post('nombre_archivo');
+		$data = array(
+			'nombre_archivo' => $nombre_archivo,
+			'activo' => 1,	
+		);
+		$this->Archivos_model->insert_archivos($data);	
+		$DATA_ID = $this->Archivos_model->get_last_id();
+		if($DATA_ID != FALSE)
+		{
+			foreach ($DATA_ID->result() as $row) 
+			{
+				$id_archivo = $row->id_archivo;
+				$update_filename = $row->id_archivo + 1;
+			}
+		}else
+		{
+			
+			$update_filename = 1;
+		}
 
-		echo $target_file;
-		/*//$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-		// Check if image file is a actual image or fake image
-		if (isset($_POST["submit"])) {
 
-		    if ($target_file == "upload/") {
-		        $msg = "cannot be empty";
-		        $uploadOk = 0;
-		    } // Check if file already exists
-		    else if (file_exists($target_file)) {
-		        $msg = "Sorry, file already exists.";
-		        $uploadOk = 0;
-		    } // Check file size
-		    else if ($_FILES["fileToUpload"]["size"] > 5000000) {
-		        $msg = "Sorry, your file is too large.";
-		        $uploadOk = 0;
-		    } // Check if $uploadOk is set to 0 by an error
-		    else if ($uploadOk == 0) {
-		        $msg = "Sorry, your file was not uploaded.";
+		$config['upload_path'] = './files/';
+        $config['allowed_types'] = '*';
+        $config['max_size'] = 2000;
+        //$config['max_width'] = 1500;
+        //$config['max_height'] = 1500;
+        $config['file_name'] = $update_filename;
+        $this->load->library('upload', $config);
 
-		        // if everything is ok, try to upload file
-		    } else {
-		        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		            $msg = "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-		        }
-		    }
-		}*/
+        if ($this->upload->do_upload('archivo')) {
+            $path = '/files/'.$this->upload->data('file_name');
+            $data = array(
+            	'path'=> $path,
+            );
+            var_dump($data);
+            $this->Archivos_model->update_path($id_archivo,$data);
+            
+        } 
+        else 
+        {
+            echo  $this->upload->display_errors();
+        }
+        redirect('archivos');
 	}
 
 

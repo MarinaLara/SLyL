@@ -1,4 +1,4 @@
-<script>var base_url = '<?php echo base_url() ?>';</script>
+
 
 <div class="content-wrapper">
 	<section class="content-header">
@@ -18,14 +18,14 @@
 						<div class="panel-heading"><center><h4>AGREGAR ARCHIVOS</h4></center></div>
 					</div>
 					<div class="box-body">
-						<form action="<?=base_url()?>archivos/crear_archivo" method="post">
+						<form action="<?=base_url()?>archivos/crear_archivo" method="post" enctype="multipart/form-data">
 				 			<div class="form-group">
 				 				<label>Escrba el nombre del archivo</label>
 				 				<input type="text" class="form-control" id="nombre_archivo" name="nombre_archivo" required="true">
 				 			</div>
 				 			<div class="form-group">
 				 				<label>Seleccionar Archivo</label>
-				 				<input type="file" class="form-control" id="archivo" name="archivo" name="uploadedfile" type="file" required="true">
+				 				<input type="file" class="form-control" id="archivo" name="archivo" name="uploadedfile" type="file" required="true" >
 				 			</div>
 						 	<div class="form-group">
 						 		<button type="submit" class="btn btn-primary">Guardar Archivo</button>
