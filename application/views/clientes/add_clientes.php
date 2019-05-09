@@ -6,7 +6,7 @@
         CREACIÓN DE CLIENTES DEL SISTEMA
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="<?=base_url()?>main"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li><a href="<?=base_url()?>clientes">Clientes</a></li>
       </ol>
     </section>
@@ -50,7 +50,7 @@
 
 						 	<div class="row col-lg-3" style="margin-top: 15px;">
 						 		<button type="submit" class="btn btn-primary">Guardar Cliente</button>
-						 		<a type="button" href="<?=base_url()?>index.php/clientes" class="btn btn-default">Cancelar</a>
+						 		<a type="button" href="<?=base_url()?>clientes" class="btn btn-default">Cancelar</a>
 						 	</div>
 					 	</form>
 					</div>

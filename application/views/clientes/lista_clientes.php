@@ -4,7 +4,7 @@
         CLIENTES REGISTRADOS
       </h1>
       <ol class="breadcrumb">
-        <li><u><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
+        <li><u><a href="<?=base_url()?>main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
         <li><u><a href="<?=base_url()?>clientes">Clientes</a></u></li>
       </ol>
     </section>
@@ -14,7 +14,7 @@
 	          	<div class="box">
 		            <div class="box-header">
 		            	<div class="col-lg-offset-10">
-		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>index.php/clientes/add_client"><i class="fa fa-plus"></i> Nuevo Cliente</a>
+		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>clientes/add_client"><i class="fa fa-plus"></i> Nuevo Cliente</a>
 		              	</div>
 			        </div>
 			    </div>
