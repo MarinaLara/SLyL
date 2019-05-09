@@ -107,6 +107,9 @@
             <li class="treeview" >
                 <li><a href="<?=base_url()?>clientes"><i class="fa fa-users"></i><span>Clientes</span></a></li>
             </li>
+            <li class="treeview" >
+                <li><a href="<?=base_url()?>archivos"><i class="fa fa-file"></i><span>Archivos</span></a></li>
+            </li>
             <?php
             }
             ?>
