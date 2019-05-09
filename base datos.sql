@@ -27,6 +27,19 @@ CREATE TABLE `usuarios` (
   FOREIGN KEY (`id_nivel`) REFERENCES `cat_niveles` (`id_nivel`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- ----------------------------
+-- Table structure for clientes
+-- ----------------------------
+DROP TABLE IF EXISTS `clientes`;
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `correo_cliente` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telefono_cliente` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_nacimiento` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ROOT', '0');
