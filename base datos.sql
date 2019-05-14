@@ -1,4 +1,3 @@
-
 CREATE DATABASE SLYL;
 use SLYL;
 
@@ -28,6 +27,32 @@ CREATE TABLE `usuarios` (
   FOREIGN KEY (`id_nivel`) REFERENCES `cat_niveles` (`id_nivel`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- ----------------------------
+-- Table structure for clientes
+-- ----------------------------
+DROP TABLE IF EXISTS `clientes`;
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `correo_cliente` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telefono_cliente` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_nacimiento` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Table structure for proyectos
+-- ----------------------------
+DROP TABLE IF EXISTS `proyectos`;
+CREATE TABLE `proyectos` (
+  `nombre_proyecto` varchar(100) NOT NULL,
+  `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`nombre_proyecto`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ROOT', '0');
@@ -41,4 +66,9 @@ INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('PRODUCCIÓN', '
 -- Records of usuarios
 -- ----------------------------
 INSERT INTO `usuarios` VALUES ('1', 'root@pinguinosystems.com', 'MARTIN FRANCISCO', 'MARTINEZ', 'FEDERICO', '1', '123456', '1');
+
+-- -------------------------
+-- Insertar Proyecto
+-- -------------------------
+INSERT INTO `proyectos` (`nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`) VALUES ('LETRERO FRONTAL', 'CAFFENIO', '10/05/2019', NULL, 'MARTIN MARTINEZ');
 

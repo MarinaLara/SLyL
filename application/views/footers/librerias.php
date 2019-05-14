@@ -17,7 +17,7 @@
 	 	 <div class="control-sidebar-bg"></div>
 	</div>
 
-	<!-- Select2 -->
+		<!-- Select2 -->
 	<script src="<?= base_url(); ?>template/bower_components/select2/dist/js/select2.full.min.js"></script>
 	<!-- Slimscroll -->
 	<script src="<?= base_url(); ?>template/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -35,6 +35,32 @@
 	<!-- iCheck 1.0.1 -->
 	<script src="<?= base_url(); ?>template/plugins/iCheck/icheck.min.js"></script>
 	<script src="<?= base_url(); ?>template/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+	
+	<script src="<?=base_url(); ?>template/bower_components/moment/min/moment.min.js"></script>
+	<script src="<?=base_url(); ?>template/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+	<script src="<?=base_url(); ?>template/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+	<script src="<?= base_url(); ?>template/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
+	<script src="<?=base_url(); ?>template/bower_components/moment/moment.js"></script>
+	<script src="<?=base_url(); ?>template/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+	
+	<!-- InputMask -->
+	<script src="<?= base_url(); ?>template/plugins/input-mask/jquery.inputmask.js"></script>
+	<script src="<?= base_url(); ?>template/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+	<script src="<?= base_url(); ?>template/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+	<script type="text/javascript">
+		 //Datemask dd/mm/yyyy
+    	$('#txt_fecha').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+		//Date picker
+	    $('#txt_fecha').datepicker({
+	    	autoclose: true,
+	    	format: 'yyyy-mm-dd'
+	    })
+	</script>
+	
 	<script type="text/javascript">
 
         $(function () {
@@ -143,6 +169,10 @@
 		    case 'usuarios':
 			    echo '<script src="'.base_url().'js/usuarios/usuarios.js"></script>';
 			    echo '<script src="'.base_url().'js/main/main.js"></script>';
+		    break;
+
+		    case 'clientes':
+			    echo '<script src="'.base_url().'js/clientes/clientes.js"></script>';
 		    break;
 
 		    default:

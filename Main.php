@@ -61,14 +61,13 @@ class Main extends CI_Controller {
 			);
 
 			$this->session->set_userdata($newdata);
-			$this->index();	
+			redirect('Main');		
 		}
 	}
 
 	public function editar_contrasena_main()
 	{
-		if($this->input->is_ajax_request())
-		{
+		if($this->input->is_ajax_request()){
 			
 			$id_usuario = trim($this->input->post('id_usuario'));
 			$data = array(				
@@ -88,7 +87,6 @@ class Main extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
-
 
 
 	public function recordarContrasena()
@@ -118,10 +116,7 @@ class Main extends CI_Controller {
 				if(!isset($_POST['email'])) 
 				{
 
-					//echo "<script>alert(\"Ocurrió un error y el formulario no ha sido enviado,Por favor, vuelva atrás y verifique la información ingresada\");</script>";
-					
-					$script = array('mensajes_swal' => 'swal("ERROR","Ocurrió un error y el formulario no ha sido enviado,Por favor, vuelva atrás y verifique la información ingresada", "error");');
-					//$this->load->view('inicio/login',$script);
+					echo "<script>alert(\"Ocurrió un error y el formulario no ha sido enviado,Por favor, vuelva atrás y verifique la información ingresada\");</script>";
 					
 					die();
 				}
@@ -136,22 +131,21 @@ class Main extends CI_Controller {
 				@mail($email_to, $email_subject, $email_message, $headers);
 
 
-				$script = array('mensajes_swal' => 'swal("CORRECTO","Su contraseña se ha enviado correctamente al correo de destino", "success");');
-				$this->load->view('inicio/login',$script);
+				print '<script type="text/javascript">alert("Su contraseña se ha enviado correctamente al correo de destino");</script>';
 				
+				//falta que muestre el mensaje swal
+
 			}
 			else
 			{
-
-				$script = array('mensajes_swal' => 'swal("ERROR","No se encontro ningun usuario con el nombre ingresado por favor revise", "error");');
-				$this->load->view('inicio/login',$script);
+				//CAMBIAR POR SWAL
 				
+				print '<script type="text/javascript">swal("No se encontro ningun usuario con el nombre ingresado por favor revise", "warning");</script>';
 				
 			}
 
-			//$this->index();	
+			$this->index();	
 		}
 	}
-
 
 }
