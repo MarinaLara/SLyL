@@ -7,7 +7,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?=base_url()?>main"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li><a href="<?=base_url()?>clientes">Proyectos</a></li>
+        <li><a href="<?=base_url()?>proyectos">Proyectos</a></li>
       </ol>
     </section>
 	<section class="content">
@@ -59,7 +59,7 @@
 						 	<hr>
 						 	<div class="row col-lg-4" style="margin-top: 25px;">
 						 		<button type="submit" class="btn btn-primary">Guardar Proyecto</button>
-						 		<a type="button" href="<?=base_url()?>Proyectos" class="btn btn-default">Cancelar</a>
+						 		<a type="button" href="<?=base_url()?>proyectos" class="btn btn-default">Cancelar</a>
 						 	</div>
 					 	</form>
 					</div>

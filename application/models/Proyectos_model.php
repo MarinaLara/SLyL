@@ -11,8 +11,8 @@ class Proyectos_model extends CI_Model {
     public function get_proyectos()
     {
 
-        $this->db->select('*');
         $this->db->from('proyectos');
+        $this->db->where('activo',1);
 
         $query = $this->db->get();
 

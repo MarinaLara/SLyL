@@ -51,9 +51,21 @@ CREATE TABLE `proyectos` (
   `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` CHAR(1) COLLATE utf8_unicode_ci DEFAULT '1',
   PRIMARY KEY (`nombre_proyecto`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+
+-- -----------------------------
+-- Table structure for archivos
+-- -----------------------------
+DROP TABLE IF EXISTS `archivos`;
+CREATE TABLE `archivos` ( 
+  `id_archivo` INT(11) NOT NULL auto_increment, 
+  `nombre_archivo` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL , 
+  `activo` CHAR(1) COLLATE utf8_unicode_ci DEFAULT '1' , 
+  PRIMARY KEY (`id_archivo`)
+  ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ROOT', '0');
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ADMINISTRADOR', '1');

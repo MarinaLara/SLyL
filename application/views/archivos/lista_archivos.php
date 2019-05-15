@@ -37,7 +37,12 @@
 											<center><?= $row->id_archivo;?></center>
 										</td>
 										<td>
-											<a href="<?=base_url().$row->path?>" target="_blanck"><?= $row->nombre_archivo;?></a>
+											<a href="<?=base_url().$row->path?>" target="_blank">
+											<center><i class="fa fa-file">&nbsp,&nbsp<?= $row->nombre_archivo;?></i></center>
+											</a>
+										</td>
+										<td>
+											<center><button data-id="<?= $row->id_archivo; ?>" class="btn btn-danger eliminar archivo" title="Eliminar Archivo" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button></center>
 										</td>
 										<td></td>
 									</tr>
@@ -52,50 +57,3 @@
 		</div>
 	</section>
 </div>
-
-
-<!-- MODAL PARA EDITAR LOS CLIENTES -->
-<div class="modal fade" id="modal_cliente_editar" tabindex="-1" role="dialog" aria-hidden="true" >
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content" >
-            <div class="modal-header">
-            	<center><h3 class="modal-title">Modificar Usuarios</h3></center>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <hr>    
-            </div>
-            <div class="modal-body">
-	            <form  name="editar_clientes" id="editar_clientes">
-	            	<input type="hidden" id="id_cliente_editar" name="id_cliente_editar" >
-	            	<div class="row">
-				 		<div class="form-group col-lg-4">	
-				 			<label >Nombre:</label>
-							<input type="text" class="form-control" required id="txt_nombre_editar" name="txt_nombre_editar" placeholder="NOMBRE" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();" required="true">
-				 		</div>
-
-				 		<div class="form-group col-lg-4">
-				 			<label >Telefono:</label>
-							<input type="text" class="form-control" id="txt_telefono_editar" name="txt_telefono_editar" placeholder="TELEFONO" maxlength="12" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required="true">
-				 		</div>			 		
-					</div>
-
-			 		<div class="row" style="margin-top: 30px;">
-			 			<div class="form-group col-lg-4">
-				 			<label >Correo:</label>
-							<input type="email" class="form-control" id=txt_correo_editar name="txt_correo_editar" placeholder="CORREO ELECTRONICO" maxlength="100" required="true" >
-				 		</div>
-				 		<div class="form-group col-lg-4">
-				 			<label >Fecha de nacimiento:</label>
-							<input type="text" class="form-control" required id="txt_fecha" name="txt_fecha" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
-				 		</div>	
-	 				</div>
-	 				<hr>
-				 	<div class="row modal-footer" style="margin-top: 10px;">
-	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-	                    <button type="submit" class="btn btn-primary">Guardar</button>
-	                </div>
-				</form> 
-            </div>
-        </div>
-    </div>
-</div>
-<!-- FIN DEL MODAL PARA EDITAR LOS CLIENTES -->

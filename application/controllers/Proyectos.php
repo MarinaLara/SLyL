@@ -52,7 +52,7 @@ class Proyectos extends CI_Controller {
 			
 			$nombre_proyecto = $this->input->post('nombre_proyecto');
 			$data = array(
-				'DATA_PROYECTOS' => $this->Proyectos_model->get_clientes_by_id($nombre_proyecto),
+				'DATA_PROYECTOS' => $this->Proyectos_model->get_proyectos($nombre_proyecto),
 			);
 			//var_dump($data);
 			echo json_encode($data);

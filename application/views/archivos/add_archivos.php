@@ -25,7 +25,7 @@
 				 			</div>
 				 			<div class="form-group">
 				 				<label>Seleccionar Archivo</label>
-				 				<input type="file" class="form-control" id="archivo" name="archivo" name="uploadedfile" type="file" required="true" >
+				 				<input type="file" class="form-control" id="archivo" name="archivo" name="uploadedfile" type="file" required="true">
 				 			</div>
 						 	<div class="form-group">
 						 		<button type="submit" class="btn btn-primary">Guardar Archivo</button>
