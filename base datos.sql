@@ -41,6 +41,31 @@ CREATE TABLE `clientes` (
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- ----------------------------
+-- Table structure for proyectos
+-- ----------------------------
+DROP TABLE IF EXISTS `proyectos`;
+CREATE TABLE `proyectos` (
+  `nombre_proyecto` varchar(100) NOT NULL,
+  `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` CHAR(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  PRIMARY KEY (`nombre_proyecto`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+-- -----------------------------
+-- Table structure for archivos
+-- -----------------------------
+DROP TABLE IF EXISTS `archivos`;
+CREATE TABLE `archivos` ( 
+  `id_archivo` INT(11) NOT NULL auto_increment, 
+  `nombre_archivo` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL , 
+  `activo` CHAR(1) COLLATE utf8_unicode_ci DEFAULT '1' , 
+  PRIMARY KEY (`id_archivo`)
+  ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ROOT', '0');
 INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('ADMINISTRADOR', '1');
@@ -53,4 +78,9 @@ INSERT INTO `cat_niveles` (departamento, nivel_usuario) VALUES ('PRODUCCIÓN', '
 -- Records of usuarios
 -- ----------------------------
 INSERT INTO `usuarios` VALUES ('1', 'root@pinguinosystems.com', 'MARTIN FRANCISCO', 'MARTINEZ', 'FEDERICO', '1', '123456', '1');
+
+-- -------------------------
+-- Insertar Proyecto
+-- -------------------------
+INSERT INTO `proyectos` (`nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`) VALUES ('LETRERO FRONTAL', 'CAFFENIO', '10/05/2019', NULL, 'MARTIN MARTINEZ');
 

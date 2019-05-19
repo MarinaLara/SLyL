@@ -174,6 +174,9 @@
 		    case 'clientes':
 			    echo '<script src="'.base_url().'js/clientes/clientes.js"></script>';
 		    break;
+		    case 'archivos':
+			    echo '<script src="'.base_url().'js/archivos/archivo.js"></script>';
+		    break;
 
 		    default:
 		    	echo '<script src="'.base_url().'js/main/main.js"></script>';
