@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2019 a las 06:46:42
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.12
+-- Tiempo de generación: 20-05-2019 a las 05:38:12
+-- Versión del servidor: 10.1.39-MariaDB
+-- Versión de PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,10 +30,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `archivos` (
   `id_archivo` int(11) NOT NULL,
-  `path` text,
-  `nombre_archivo` varchar(45) DEFAULT NULL,
-  `activo` int(11) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nombre_archivo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `archivos`
+--
+
+INSERT INTO `archivos` (`id_archivo`, `nombre_archivo`, `activo`, `path`) VALUES
+(11, 'Quattuor', '0', '/files/12.png'),
+(9, 'test', '0', '/files/10.jpg'),
+(10, 'Arya', '0', '/files/11.jpg'),
+(12, 'imagen', '0', '/files/13.jpg');
 
 -- --------------------------------------------------------
 
@@ -71,6 +81,29 @@ CREATE TABLE `clientes` (
   `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `telefono_cliente` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_nacimiento` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `correo_cliente`, `nombre_cliente`, `telefono_cliente`, `fecha_nacimiento`, `activo`) VALUES
+(9, 'joel.gaona.haro@gmail.com', 'JOEL GAONA', '6371222630', '2019/05/07', '1'),
+(11, 'joel.gaona.haro@gmail.com', 'DANIEL MORENO', '6371222630', '2019/01/17', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proyectos`
+--
+
+CREATE TABLE `proyectos` (
+  `nombre_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -121,6 +154,12 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Indices de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  ADD PRIMARY KEY (`nombre_proyecto`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -135,7 +174,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `cat_niveles`
@@ -147,7 +186,7 @@ ALTER TABLE `cat_niveles`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

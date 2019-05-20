@@ -52,7 +52,7 @@ class Proyectos extends CI_Controller {
 			
 			$nombre_proyecto = $this->input->post('nombre_proyecto');
 			$data = array(
-				'DATA_PROYECTOS' => $this->Proyectos_model->get_proyectos($nombre_proyecto),
+				'DATA_PROYECTOS' => $this->Proyectos_model->get_proyectos_by_name($nombre_proyecto),
 			);
 			//var_dump($data);
 			echo json_encode($data);
@@ -70,7 +70,7 @@ class Proyectos extends CI_Controller {
 			
 			$data = array(				
 				'nombre_proyecto' => trim($this->input->post('nombre_proyecto')),
-				'correo_cliente' => trim($this->input->post('correo_cliente')),
+				'nombre_cliente' => trim($this->input->post('nombre_cliente')),
 				'fecha_inicio' => trim($this->input->post('fecha_inicio')),
 				'fecha_final' => trim($this->input->post('fecha_final')),
 				'creador_proyecto' => trim($this->input->post('creador_proyecto')),
@@ -88,7 +88,7 @@ class Proyectos extends CI_Controller {
 		if($this->input->is_ajax_request()){
 			$data = array(				
 				'nombre_proyecto' => trim($this->input->post('nombre_proyecto')),
-				'correo_cliente' => trim($this->input->post('correo_cliente')),
+				'nombre_cliente' => trim($this->input->post('nombre_cliente')),
 				'fecha_inicio' => trim($this->input->post('fecha_inicio')),
 				'fecha_final' => trim($this->input->post('fecha_final')),
 				'creador_proyecto' => trim($this->input->post('creador_proyecto')),

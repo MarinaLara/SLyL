@@ -98,23 +98,23 @@ class Archivos extends CI_Controller {
 
 
 
-	public function datos_editar_cliente()
-	{
-		if($this->input->is_ajax_request())
-		{
+	// public function datos_editar_cliente()
+	// {
+	// 	if($this->input->is_ajax_request())
+	// 	{
 			
-			$id_cliente = $this->input->post('id_cliente');
-			$data = array(
-				'DATA_CLIENTE' => $this->Clientes_model->get_clientes_by_id($id_cliente),
-			);
-			//var_dump($data);
-			echo json_encode($data);
-		}
-		else
-		{
-            show_404();
-        }
-	}
+	// 		$id_cliente = $this->input->post('id_cliente');
+	// 		$data = array(
+	// 			'DATA_CLIENTE' => $this->Clientes_model->get_clientes_by_id($id_cliente),
+	// 		);
+	// 		//var_dump($data);
+	// 		echo json_encode($data);
+	// 	}
+	// 	else
+	// 	{
+ //            show_404();
+ //        }
+	// }
 
 	public function editar_cliente()
 	{

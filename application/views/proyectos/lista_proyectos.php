@@ -81,27 +81,27 @@
 	            	<div class="row">
 				 		<div class="form-group col-lg-4">	
 				 			<label >Nombre De Proyecto:</label>
-							<input type="text" class="form-control" required id="txt_nom_pro_editar" name="txt_nom_pro_editar" placeholder="NOMBRE DEL PROYECTO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();" required="true">
+							<input type="text" class="form-control" required id="txt_nombre_pro_editar" name="txt_nombre_pro_editar" placeholder="NOMBRE DEL PROYECTO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();" required="true">
 				 		</div>
 
 				 		<div class="form-group col-lg-4">
 				 			<label >Nombre De Cliente:</label>
-							<input type="text" class="form-control" id="txt_nom_clie_editar" name="txt_nom_cli_editar" placeholder="NOMBRE DE CLIENTE" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
+							<input type="text" class="form-control" id="txt_nom_cliente_editar" name="txt_nom_cliente_editar" placeholder="NOMBRE DE CLIENTE" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
 				 		</div>			 		
 					</div>
 
 			 		<div class="row" style="margin-top: 30px;">
 			 			<div class="form-group col-lg-4">
 				 			<label >Fecha De Inicio:</label>
-							<input type="text" class="form-control" required id="txt_fechaI_editar" name="txt_fechaI_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
+							<input type="text" class="form-control datetime" required id="txt_fecha_in_editar" name="txt_fecha_in_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
 				 		</div>
 				 		<div class="form-group col-lg-4">
 				 			<label >Fecha Final:</label>
-							<input type="text" class="form-control" required id="txt_fechaF_editar" name="txt_fechaF_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="false">
+							<input type="text" class="form-control datetime" required id="txt_fecha_fin_editar" name="txt_fecha_fin_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="false">
 				 		</div>	
-				 		<div class="col-lg-8">	
-						 		<label>Ceador Del Proyecto:</label>
-								<input type="text" class="form-control" required id="txt_creador_pro" name="txt_creador_pro" placeholder="CREADOR DEL PROYECTO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
+				 		<div class="col-lg-4">	
+						 		<label>Creador Del Proyecto:</label>
+								<input type="text" class="form-control" required id="txt_creador_pro_editar" name="txt_creador_pro_editar" placeholder="CREADOR DEL PROYECTO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
 							</div>
 	 				</div>
 	 				<hr>

@@ -99,7 +99,7 @@
 				 		</div>
 				 		<div class="form-group col-lg-4">
 				 			<label >Fecha de nacimiento:</label>
-							<input type="text" class="form-control" required id="txt_fecha" name="txt_fecha" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
+							<input type="text" class="form-control datetime" required id="txt_fecha" name="txt_fecha" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
 				 		</div>	
 	 				</div>
 	 				<hr>
