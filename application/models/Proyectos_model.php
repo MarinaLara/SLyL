@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Proyectos_model extends CI_Model {
     
 
@@ -19,6 +20,23 @@ class Proyectos_model extends CI_Model {
         if($query->num_rows() > 0)
         {
             return $query;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+    public function get_proyectos_by_name($nombre_proyecto)
+    {
+        
+        $this->db->from('proyectos');
+        $this->db->where('nombre_proyecto',$nombre_proyecto);
+        
+        
+        $query = $this->db->get();
+        if($query->num_rows() > 0)
+        {
+            return $query->row();
         }
         else
         {

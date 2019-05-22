@@ -37,7 +37,7 @@
 							                <div class="input-group-addon">
 							                	<i class="fa fa-calendar"></i>
 							                </div>
-							                <input type="text" class="form-control pull-right" id="txt_fecha" name="txt_fecha" required="true" autocomplete="off" placeholder="yyyy-mm-dd">
+							                <input type="text" class="form-control pull-right datetime" id="txt_fecha" name="txt_fecha" required="true" autocomplete="off" placeholder="yyyy-mm-dd">
 						                </div>
 						                <!-- /.input group -->
 						            </div>

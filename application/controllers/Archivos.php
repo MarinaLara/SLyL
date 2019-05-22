@@ -98,23 +98,23 @@ class Archivos extends CI_Controller {
 
 
 
-	public function datos_editar_cliente()
-	{
-		if($this->input->is_ajax_request())
-		{
+	// public function datos_editar_cliente()
+	// {
+	// 	if($this->input->is_ajax_request())
+	// 	{
 			
-			$id_cliente = $this->input->post('id_cliente');
-			$data = array(
-				'DATA_CLIENTE' => $this->Clientes_model->get_clientes_by_id($id_cliente),
-			);
-			//var_dump($data);
-			echo json_encode($data);
-		}
-		else
-		{
-            show_404();
-        }
-	}
+	// 		$id_cliente = $this->input->post('id_cliente');
+	// 		$data = array(
+	// 			'DATA_CLIENTE' => $this->Clientes_model->get_clientes_by_id($id_cliente),
+	// 		);
+	// 		//var_dump($data);
+	// 		echo json_encode($data);
+	// 	}
+	// 	else
+	// 	{
+ //            show_404();
+ //        }
+	// }
 
 	public function editar_cliente()
 	{
@@ -137,15 +137,15 @@ class Archivos extends CI_Controller {
 
 	
 
-	public function eliminar_cliente()
+	public function eliminar_archivo()
 	{
 		if($this->input->is_ajax_request()){
 
-			$id_cliente = $this->input->post('id_cliente');
+			$id_archivo = $this->input->post('id_archivo');
 			$data = array(
 				'activo' => 0,
 			);
-			$this->Clientes_model->delete_clientes($id_cliente,$data);
+			$this->Archivos_model->delete_archivos($id_archivo,$data);
 
 		}
 		else

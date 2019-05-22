@@ -53,13 +53,29 @@
 
 	<script type="text/javascript">
 		 //Datemask dd/mm/yyyy
-    	$('#txt_fecha').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+    	$('.datetime').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
 		//Date picker
-	    $('#txt_fecha').datepicker({
+	    $('.datetime').datepicker({
 	    	autoclose: true,
 	    	format: 'yyyy-mm-dd'
 	    })
 	</script>
+
+	<!-- <script type="text/javascript">
+		 //Datemask dd/mm/yyyy
+    	$('#txt_fecha_in').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+		//Date picker
+	    $('#txt_fecha_in').datepicker({
+	    	autoclose: true,
+	    	format: 'yyyy-mm-dd'
+	    //Datemask dd/mm/yyyy
+	    $('#txt_fecha_fin').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+		//Date picker
+	    $('#txt_fecha_fin').datepicker({
+	    	autoclose: true,
+	    	format: 'yyyy-mm-dd'
+	    })
+	</script> -->
 	
 	<script type="text/javascript">
 
@@ -173,6 +189,12 @@
 
 		    case 'clientes':
 			    echo '<script src="'.base_url().'js/clientes/clientes.js"></script>';
+		    break;
+		    case 'archivos':
+			    echo '<script src="'.base_url().'js/archivos/archivo.js"></script>';
+		    break;
+		    case 'proyectos':
+			    echo '<script src="'.base_url().'js/proyectos/proyectos.js"></script>';
 		    break;
 
 		    default:

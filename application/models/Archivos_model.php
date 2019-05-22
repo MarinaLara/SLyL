@@ -55,7 +55,7 @@ class Archivos_model extends CI_Model {
         echo $this->db->last_query();
     }
 
-    public function delete_clientes($id_cliente,$data)
+    public function delete_archivos($id_archivo,$data)
     {
         $this->db->where('id_archivo', $id_archivo);
         $this->db->update('archivos',$data);

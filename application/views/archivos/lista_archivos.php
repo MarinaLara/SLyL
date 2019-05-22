@@ -38,11 +38,11 @@
 										</td>
 										<td>
 											<a href="<?=base_url().$row->path?>" target="_blank">
-											<center><i class="fa fa-file">&nbsp,&nbsp<?= $row->nombre_archivo;?></i></center>
+											<center><i class="fa fa-file">&nbsp<?= $row->nombre_archivo;?></i></center>
 											</a>
 										</td>
 										<td>
-											<center><button data-id="<?= $row->id_archivo; ?>" class="btn btn-danger eliminar archivo" title="Eliminar Archivo" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button></center>
+											<center><button data-id="<?= $row->id_archivo; ?>" class="btn btn-danger eliminar_archivo" title="Eliminar Archivo" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button></center>
 										</td>
 										<td></td>
 									</tr>
