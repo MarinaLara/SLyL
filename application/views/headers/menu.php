@@ -110,9 +110,6 @@
             <li class="treeview">
                 <li><a href="<?=base_url()?>proyectos"><i class="fa fa-clipboard"></i><span>Proyectos</a></li>
             </li>
-            <li class="treeview" >
-                <li><a href="<?=base_url()?>archivos"><i class="fa fa-file"></i><span>Archivos</span></a></li>
-            </li>
             <?php
             }
             ?>

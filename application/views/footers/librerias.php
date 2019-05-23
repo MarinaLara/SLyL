@@ -196,6 +196,9 @@
 		    case 'proyectos':
 			    echo '<script src="'.base_url().'js/proyectos/proyectos.js"></script>';
 		    break;
+		    case 'letreros':
+			    echo '<script src="'.base_url().'js/letreros/letreros.js"></script>';
+		    break;
 
 		    default:
 		    	echo '<script src="'.base_url().'js/main/main.js"></script>';

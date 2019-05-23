@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2019 a las 05:38:12
+-- Tiempo de generación: 23-05-2019 a las 04:52:17
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `slyl`
 --
+CREATE DATABASE IF NOT EXISTS `slyl` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `slyl`;
 
 -- --------------------------------------------------------
 
@@ -95,6 +97,30 @@ INSERT INTO `clientes` (`id_cliente`, `correo_cliente`, `nombre_cliente`, `telef
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `letreros`
+--
+
+CREATE TABLE `letreros` (
+  `id_letrero` int(11) NOT NULL,
+  `nombre_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nombre_letrero` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `letreros`
+--
+
+INSERT INTO `letreros` (`id_letrero`, `nombre_proyecto`, `nombre_letrero`, `fecha_inicio`, `fecha_final`, `descripcion`, `creador_proyecto`, `activo`) VALUES
+(5, NULL, 'PERRO', '2019/05/22', '', '', NULL, '1');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `proyectos`
 --
 
@@ -104,8 +130,16 @@ CREATE TABLE `proyectos` (
   `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fase_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VENTAS',
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
+('LETRERO LATERAL DERECHO', 'JOEL GAONA', '2019/05/13', '2019/05/21', 'ANGEL BANUET', 'VENTAS', '1');
 
 -- --------------------------------------------------------
 
@@ -154,6 +188,13 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Indices de la tabla `letreros`
+--
+ALTER TABLE `letreros`
+  ADD PRIMARY KEY (`id_letrero`),
+  ADD KEY `nombre_proyecto` (`nombre_proyecto`);
+
+--
 -- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
@@ -187,6 +228,12 @@ ALTER TABLE `cat_niveles`
 --
 ALTER TABLE `clientes`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `letreros`
+--
+ALTER TABLE `letreros`
+  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -1,10 +1,11 @@
 <div class="content-wrapper">
 	<section class="content-header">
       <h1 class="Display1">
-        PROYECTOS
+        LETREROS
       </h1>
       <ol class="breadcrumb">
         <li><u><a href="<?=base_url()?>main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
+        <li><u><a href="<?=base_url()?>proyectos"><i class="fa fa-clipboard"></i> Proyectos</a></u></li>
       </ol>
       </section>
       <section class="content">
@@ -13,7 +14,7 @@
 	          	<div class="box">
 		            <div class="box-header">
 		            	<div class="col-lg-offset-10">
-		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>proyectos/add_proyectos"><i class="fa fa-plus"></i> Nuevo Proyecto</a>
+		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>letreros/add_letreros"><i class="fa fa-plus"></i> Nuevo Letrero</a>
 		              	</div>
 			        </div>
 			    </div>
@@ -22,23 +23,27 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
+									<th><center>ID</center></th>
 									<th><center>Nombre Del Proyecto</center></th>
-									<th><center>Nombre Del Cliente</center></th>
-									<th><center>Fecha De Inicio</center></th>
+									<th><center>Nombre Del Letrero</center></th>
+									<th><center>Fecha de Inicio</center></th>
 									<th><center>Fecha Final</center></th>
+									<th><center>Descripcion</center></th>
 									<th><center>Creador Del Proyecto</center></th>
-									<th><center>Fase</center></th>
 									<th class="no-sort"><center>Opciones</center></th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php if($DATA_PROYECTOS != FALSE) {
-									foreach ($DATA_PROYECTOS->result() as $row) {
+								<?php if($DATA_LETREROS != FALSE) {
+								foreach ($DATA_LETREROS->result() as $row) {
 								?>
 									<tr id="tr_<?= $row->nombre_proyecto;?>" name="tr_<?= $row->nombre_proyecto; ?>" >
-										<td><center><a href="<?=base_url()?>letreros"><?= $row->nombre_proyecto;?></a></center></td>
+										<td><center><a href="<?=base_url()?>archivos"><?= $row->id_letrero;?></a></center></td>
 										<td><center>
-											<?= $row->nombre_cliente;?>
+											<?= $row->nombre_proyecto;?>
+										</center></td>	
+										<td><center>
+											<?= $row->nombre_letrero;?>
 										</center></td>
 										<td><center>
 											<?= $row->fecha_inicio;?>
@@ -47,14 +52,15 @@
 											<?= $row->fecha_final;?>
 										</center></td>
 										<td><center>
+											<?= $row->descripcion;?>
+										</center></td>
+										<td><center>
 											<?= $row->creador_proyecto;?>
 										</center></td>
 										<td><center>
-											<?= $row->fase_proyecto;?>
-										</center></td>
-										<td><center>
-											<button data-id="<?= $row->nombre_proyecto; ?>" class="btn btn-primary editar_proyecto"  data-toggle="modal" data-target="#modal_proyecto_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Proyecto" ></span></button>
-											<button data-id="<?= $row->nombre_proyecto; ?>" class="btn btn-danger eliminar_proyecto" title="Eliminar Proyecto" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button>
+											<button data-id="<?= $row->nombre_letrero; ?>" class="btn btn-primary editar_letrero"  data-toggle="modal" data-target="#modal_letrero_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Letrero" ></span></button>
+
+											<button data-id="<?= $row->nombre_letrero; ?>" class="btn btn-danger eliminar_letrero" title="Eliminar Letrero" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button>
 										</center></td>
 									</tr>
 								<?php
@@ -69,32 +75,30 @@
 	</section>
   </div>
 
-  <!-- MODAL PARA EDITAR LOS PROYECTOS -->
-<div class="modal fade" id="modal_proyecto_editar" tabindex="-1" role="dialog" aria-hidden="true" >
+  <!-- MODAL PARA EDITAR LOS LETREROS -->
+<div class="modal fade" id="modal_letrero_editar" tabindex="-1" role="dialog" aria-hidden="true" >
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" >
             <div class="modal-header">
-            	<center><h3 class="modal-title">Modificar Proyecto</h3></center>
+            	<center><h3 class="modal-title">Modificar Letrero</h3></center>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <hr>    
             </div>
             <div class="modal-body">
-	            <form  name="editar_proyectos" id="editar_proyectos">
-	            	<input type="hidden" id="id_proyecto_editar" name="id_proyecto_editar" >
+	            <form  name="editar_letreros" id="editar_letreros">
+	            	<input type="hidden" id="id_letrero_editar" name="id_letrero_editar" >
 	            	<div class="row">
-				 		<div class="form-group col-lg-4">	
-				 			<label >Nombre De Proyecto:</label>
-							<input type="text" class="form-control" required id="txt_nombre_pro_editar" name="txt_nombre_pro_editar" placeholder="NOMBRE DEL PROYECTO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();" required="true">
-				 		</div>
-
 				 		<div class="form-group col-lg-4">
-				 			<label >Nombre De Cliente:</label>
-							<input type="text" class="form-control" id="txt_nom_cliente_editar" name="txt_nom_cliente_editar" placeholder="NOMBRE DE CLIENTE" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
-				 		</div>			 		
+				 			<label >Nombre De Letrero:</label>
+							<input type="text" class="form-control" id="txt_nom_letrero_editar" name="txt_nom_letrero_editar" placeholder="NOMBRE DE LETRERO" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
+				 		</div>
+				 		<div class="form-group col-lg-4">
+				 			<label >Descripcion:</label>
+							<input type="text" class="form-control" id="txt_descripcion_editar" name="txt_descripcion_editar" placeholder="DESCRIPCION" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
+				 		</div>				 		
 					</div>
-
-			 		<div class="row" style="margin-top: 30px;">
-			 			<div class="form-group col-lg-4">
+					<div class="row" style="margin-top: 30px;">
+						<div class="form-group col-lg-4">
 				 			<label >Fecha De Inicio:</label>
 							<input type="text" class="form-control datetime" required id="txt_fecha_in_editar" name="txt_fecha_in_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
 				 		</div>
@@ -102,10 +106,6 @@
 				 			<label >Fecha Final:</label>
 							<input type="text" class="form-control datetime" required id="txt_fecha_fin_editar" name="txt_fecha_fin_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="false">
 				 		</div>	
-				 		<div class="col-lg-4">	
-						 		<label>Creador Del Proyecto:</label>
-								<input type="text" class="form-control" required id="txt_creador_pro_editar" name="txt_creador_pro_editar" placeholder="CREADOR DEL PROYECTO" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();">
-							</div>
 	 				</div>
 	 				<hr>
 	 				<div class="row modal-footer" style="margin-top: 10px;">
