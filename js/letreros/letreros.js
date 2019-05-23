@@ -10,7 +10,7 @@ var letreros = {
                 nombre_letrero : $('#txt_nom_letrero').val(), 
                 fecha_inicio : $('#txt_fecha_in').val(), 
                 fecha_final : $('#txt_fecha_fin').val(),
-                creador_proyecto : $('#txt_creador_pro').val(), 
+                descripcion : $('#txt_descripcion').val(), 
             }
             cargar_ajax.run_server_ajax('letreros/crear_letrero', data);
             swal({
@@ -30,10 +30,10 @@ var letreros = {
             var data = {id_letrero: $(this).data('id')};    
             var response = cargar_ajax.run_server_ajax('letreros/datos_editar_letrero', data);
 
-            $('#txt_nom_letrero_editar').val(response.DATA_LETRERO.nombre_letrero);
-            $('#txt_fecha_in_editar').val(response.DATA_LETRERO.fecha_inicio);
-            $('#txt_fecha_fin_editar').val(response.DATA_LETRERO.fecha_final);
-            $('#txt_descripcion_editar').val(response.DATA_LETRERO.descipcion);
+            $('#txt_nom_letrero_editar').val(response.DATA_LETREROS.nombre_letrero);
+            $('#txt_fecha_in_editar').val(response.DATA_LETREROS.fecha_inicio);
+            $('#txt_fecha_fin_editar').val(response.DATA_LETREROS.fecha_final);
+            $('#txt_descripcion_editar').val(response.DATA_LETREROS.descipcion);
             
 
         });
@@ -90,7 +90,7 @@ var letreros = {
                 allowEscapeKey: false,
                 allowEnterKey: false
             }, function () {
-                cargar_ajax.run_server_ajax('letreros/eliminar_letreros', data);
+                cargar_ajax.run_server_ajax('letreros/eliminar_letrero', data);
                 swal('Eliminado!', 'Se elimino correctamente el letrero', 'success');
                 var toDelete = '#tr_' + id_letrero;
                 console.log(toDelete);

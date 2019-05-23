@@ -37,7 +37,7 @@
 								<?php if($DATA_LETREROS != FALSE) {
 								foreach ($DATA_LETREROS->result() as $row) {
 								?>
-									<tr id="tr_<?= $row->nombre_proyecto;?>" name="tr_<?= $row->nombre_proyecto; ?>" >
+									<tr id="tr_<?= $row->id_letrero;?>" name="tr_<?= $row->id_letrero; ?>" >
 										<td><center><a href="<?=base_url()?>archivos"><?= $row->id_letrero;?></a></center></td>
 										<td><center>
 											<?= $row->nombre_proyecto;?>
@@ -58,9 +58,9 @@
 											<?= $row->creador_proyecto;?>
 										</center></td>
 										<td><center>
-											<button data-id="<?= $row->nombre_letrero; ?>" class="btn btn-primary editar_letrero"  data-toggle="modal" data-target="#modal_letrero_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Letrero" ></span></button>
+											<button data-id="<?= $row->id_letrero; ?>" class="btn btn-primary editar_letrero"  data-toggle="modal" data-target="#modal_letrero_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Letrero" ></span></button>
 
-											<button data-id="<?= $row->nombre_letrero; ?>" class="btn btn-danger eliminar_letrero" title="Eliminar Letrero" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button>
+											<button data-id="<?= $row->id_letrero; ?>" class="btn btn-danger eliminar_letrero" title="Eliminar Letrero" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button>
 										</center></td>
 									</tr>
 								<?php
@@ -90,11 +90,11 @@
 	            	<div class="row">
 				 		<div class="form-group col-lg-4">
 				 			<label >Nombre De Letrero:</label>
-							<input type="text" class="form-control" id="txt_nom_letrero_editar" name="txt_nom_letrero_editar" placeholder="NOMBRE DE LETRERO" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
+							<input type="text" class="form-control" id="txt_nom_letrero_editar" name="txt_nom_letrero_editar" placeholder="NOMBRE DE LETRERO" maxlength="20" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
 				 		</div>
 				 		<div class="form-group col-lg-4">
 				 			<label >Descripcion:</label>
-							<input type="text" class="form-control" id="txt_descripcion_editar" name="txt_descripcion_editar" placeholder="DESCRIPCION" maxlength="12" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
+							<input type="text" class="form-control" id="txt_descripcion_editar" name="txt_descripcion_editar" placeholder="DESCRIPCION" maxlength="150" onKeyUp="this.value=this.value.toUpperCase();" required="true" required="true">
 				 		</div>				 		
 					</div>
 					<div class="row" style="margin-top: 30px;">

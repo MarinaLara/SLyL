@@ -50,7 +50,7 @@ class Letreros extends CI_Controller {
 		if($this->input->is_ajax_request())
 		{
 			
-			$id_letrero = $this->input->post('id_cliente');
+			$id_letrero = $this->input->post('id_letrero');
 			$data = array(
 				'DATA_LETREROS' => $this->Letreros_model->get_letreros_by_id($id_letrero),
 			);

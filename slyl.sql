@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2019 a las 04:52:17
+-- Tiempo de generación: 23-05-2019 a las 06:38:45
 -- Versión del servidor: 10.1.39-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -116,7 +116,12 @@ CREATE TABLE `letreros` (
 --
 
 INSERT INTO `letreros` (`id_letrero`, `nombre_proyecto`, `nombre_letrero`, `fecha_inicio`, `fecha_final`, `descripcion`, `creador_proyecto`, `activo`) VALUES
-(5, NULL, 'PERRO', '2019/05/22', '', '', NULL, '1');
+(9, NULL, 'GATO', '2019/05/20', '2019/05/29', '', NULL, '0'),
+(8, NULL, 'GATO', '2019/05/20', '2019/05/27', '', NULL, '1'),
+(10, NULL, 'PERRO', '2019/05/27', '2019/05/30', '', NULL, '0'),
+(11, NULL, 'GATO', '2019/06/02', '2019/06/05', '', NULL, '0'),
+(12, NULL, 'GATO', '2019/06/03', '2019/06/05', '', NULL, '1'),
+(13, NULL, 'PERRO', '2019/06/03', '2019/06/05', 'OTRO GATO', NULL, '0');
 
 -- --------------------------------------------------------
 
@@ -139,7 +144,8 @@ CREATE TABLE `proyectos` (
 --
 
 INSERT INTO `proyectos` (`nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
-('LETRERO LATERAL DERECHO', 'JOEL GAONA', '2019/05/13', '2019/05/21', 'ANGEL BANUET', 'VENTAS', '1');
+('LETRERO LATERAL DERECHO', 'JOEL GAONA', '2019/05/13', '2019/05/21', 'ANGEL BANUET', 'VENTAS', '1'),
+('CARRO', 'PERRO', '2019/05/28', '2019/05/31', 'JOEL GAONA', 'VENTAS', '1');
 
 -- --------------------------------------------------------
 
@@ -233,7 +239,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `letreros`
 --
 ALTER TABLE `letreros`
-  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
