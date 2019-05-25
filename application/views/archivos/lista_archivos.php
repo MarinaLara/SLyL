@@ -5,7 +5,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><u><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
-        <li><u><a href="<?=base_url()?>archivos">Archivos</a></u></li>
+        <li><u><a href="<?=base_url()?>letreros"><i class="fa fa-file"></i> Letreros</a></u></li>
       </ol>
     </section>
 	<section class="content">

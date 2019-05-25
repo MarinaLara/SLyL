@@ -3,16 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2019 a las 05:38:12
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
-CREATE DATABASE SLYL;
-use SLYL;
+-- Tiempo de generación: 25-05-2019 a las 02:14:07
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -23,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `slyl`
 --
+CREATE DATABASE IF NOT EXISTS `slyl` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `slyl`;
 
 -- --------------------------------------------------------
 
@@ -30,24 +30,27 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `archivos`
 --
 
-
-
 CREATE TABLE `archivos` (
   `id_archivo` int(11) NOT NULL,
   `nombre_archivo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
   `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `archivos`
 --
 
 INSERT INTO `archivos` (`id_archivo`, `nombre_archivo`, `activo`, `path`) VALUES
-(11, 'Quattuor', '0', '/files/12.png'),
 (9, 'test', '0', '/files/10.jpg'),
 (10, 'Arya', '0', '/files/11.jpg'),
-(12, 'imagen', '0', '/files/13.jpg');
+(11, 'Quattuor', '0', '/files/12.png'),
+(12, 'imagen', '0', '/files/13.jpg'),
+(13, 'Arya', '0', '/files/141.jpg'),
+(14, 'cosa1', '0', '/files/151.jpg'),
+(15, 'COSA2', '1', '/files/16.jpg'),
+(16, 'COSA3', '1', '/files/17.jpg'),
+(17, 'COSA4', '1', '/files/18.png');
 
 -- --------------------------------------------------------
 
@@ -99,17 +102,49 @@ INSERT INTO `clientes` (`id_cliente`, `correo_cliente`, `nombre_cliente`, `telef
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `letreros`
+--
+
+CREATE TABLE `letreros` (
+  `id_letrero` int(11) NOT NULL,
+  `nombre_letrero` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha_ini` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_fi` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  `id_proyecto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `letreros`
+--
+
+INSERT INTO `letreros` (`id_letrero`, `nombre_letrero`, `fecha_ini`, `fecha_fi`, `descripcion`, `activo`, `id_proyecto`) VALUES
+(1, 'PERRITO', '2019/05/25', '2019/05/30', 'HECHO DE PERRITO', '1', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `proyectos`
 --
 
 CREATE TABLE `proyectos` (
+  `id_proyecto` int(11) NOT NULL,
   `nombre_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fase_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VENTAS',
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`id_proyecto`, `nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
+(1, 'LETRERO LATERAL', 'CAFFENIO', '2019/05/19', '2019/06/08', 'VALENZUELA HERMANOS', 'VENTAS', '1');
 
 -- --------------------------------------------------------
 
@@ -125,19 +160,6 @@ CREATE TABLE `usuarios` (
   `apellido_m` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_nivel` int(11) DEFAULT NULL,
   `contrasena` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
---
--- Estructura de tabla para la tabla `letreros`
---
-
-CREATE TABLE `letreros` (
-  `id_letrero` int(11) NOT NULL,
-  `nombre_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -171,10 +193,17 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Indices de la tabla `letreros`
+--
+ALTER TABLE `letreros`
+  ADD PRIMARY KEY (`id_letrero`),
+  ADD KEY `id_proyecto` (`id_proyecto`);
+
+--
 -- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  ADD PRIMARY KEY (`nombre_proyecto`);
+  ADD PRIMARY KEY (`id_proyecto`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -184,13 +213,6 @@ ALTER TABLE `usuarios`
   ADD KEY `id_nivel` (`id_nivel`);
 
 --
--- Indices de la tabla `letreros`
---
-ALTER TABLE `letreros`
-  ADD PRIMARY KEY (`id_letrero`),
-  ADD KEY `nombre_proyecto` (`nombre_proyecto`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -198,7 +220,7 @@ ALTER TABLE `letreros`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `cat_niveles`
@@ -213,17 +235,32 @@ ALTER TABLE `clientes`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `letreros`
+--
+ALTER TABLE `letreros`
+  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
 
 --
--- AUTO_INCREMENT de la tabla `letreros`
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `letreros`
 --
 ALTER TABLE `letreros`
-  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  ADD CONSTRAINT `letreros_ibfk_1` FOREIGN KEY (`id_proyecto`) REFERENCES `proyectos` (`id_proyecto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
