@@ -13,7 +13,7 @@ class Letreros_model extends CI_Model {
     {
         $this->db->select('id_letrero, proyectos.nombre_proyecto, nombre_letrero, fecha_ini, fecha_fi, descripcion, proyectos. creador_proyecto');
         $this->db->from('letreros');
-        $this->db->join('proyectos','letreros.id_proyecto=proyectos.id_proyecto');
+        $this->db->join('proyectos','letreros.id_proyecto=proyectos.id_proyecto', 'inner');
         $this->db->where('letreros.activo', 1);
         
         $query=$this->db->get();

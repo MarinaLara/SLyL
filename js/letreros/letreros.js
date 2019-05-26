@@ -5,23 +5,24 @@ var letreros = {
             
             form.preventDefault();
             
-            var data = { 
+            var data = {
                 nombre_letrero : $('#txt_nom_letrero').val(), 
                 fecha_ini : $('#txt_fecha_ini').val(), 
-                fecha_fi : $('#txt_fecha_fi').val(),
-                descripcion : $('#txt_descripcion').val(),
+                fecha_fi : $('#txt_fecha_fi').val(), 
+                descripcion : $('#txt_descripcion').val(), 
             }
             cargar_ajax.run_server_ajax('letreros/crear_letrero', data);
             swal({
                     title: 'CORRECTO',
-                    text: 'SE AGREGO CORRECTAMENTE EL LETRERO',
+                    text: 'SE AGREGO CORRECTAMENTE EL CLIENTE',
                     type: 'success',
                     closeOnConfirm: false
                 },function(){
-                    window.location.assign(base_url + 'letreros');
+                    window.location.assign(base_url + 'clientes');
                 });
         });
     },
+
 
     datos_editar_letreros: function(){
         $(document).on('click','button.editar_letrero', function () {

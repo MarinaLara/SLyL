@@ -49,7 +49,7 @@
 						                <input type="text" class="form-control pull-right datetime" id="txt_fecha_fi" name="txt_fecha_fi"  autocomplete="off" placeholder="yyyy-mm-dd">
 						            </div>
 						 		</div>
-						 	</div>						 			
+						 	</div>	
 						 	<br/><br/><br/><br/>
 						 	<hr>
 						 	<div class="row col-lg-4" style="margin-top: 25px;">

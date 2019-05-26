@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2019 a las 02:14:07
+-- Tiempo de generación: 26-05-2019 a las 10:32:44
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -36,21 +36,6 @@ CREATE TABLE `archivos` (
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
   `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `archivos`
---
-
-INSERT INTO `archivos` (`id_archivo`, `nombre_archivo`, `activo`, `path`) VALUES
-(9, 'test', '0', '/files/10.jpg'),
-(10, 'Arya', '0', '/files/11.jpg'),
-(11, 'Quattuor', '0', '/files/12.png'),
-(12, 'imagen', '0', '/files/13.jpg'),
-(13, 'Arya', '0', '/files/141.jpg'),
-(14, 'cosa1', '0', '/files/151.jpg'),
-(15, 'COSA2', '1', '/files/16.jpg'),
-(16, 'COSA3', '1', '/files/17.jpg'),
-(17, 'COSA4', '1', '/files/18.png');
 
 -- --------------------------------------------------------
 
@@ -120,7 +105,9 @@ CREATE TABLE `letreros` (
 --
 
 INSERT INTO `letreros` (`id_letrero`, `nombre_letrero`, `fecha_ini`, `fecha_fi`, `descripcion`, `activo`, `id_proyecto`) VALUES
-(1, 'PERRITO', '2019/05/25', '2019/05/30', 'HECHO DE PERRITO', '1', 1);
+(1, 'PERRITO', '2019/05/25', '2019/05/30', 'PERRITO DE HIERRO', '1', 1),
+(2, 'ANUNCIO ALUMINIO', '2019/05/25', '2019/05/30', 'ALUMINIO VACIADO', '1', 2),
+(4, 'ANUNCIO CALLE', '2019/03/14', '2019/06/02', 'ANUNCIO SOBRE CALLE', '1', 2);
 
 -- --------------------------------------------------------
 
@@ -144,7 +131,9 @@ CREATE TABLE `proyectos` (
 --
 
 INSERT INTO `proyectos` (`id_proyecto`, `nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
-(1, 'LETRERO LATERAL', 'CAFFENIO', '2019/05/19', '2019/06/08', 'VALENZUELA HERMANOS', 'VENTAS', '1');
+(1, 'LETRERO LATERAL', 'CAFFENIO', '2019/05/19', '2019/06/08', 'VALENZUELA HERMANOS', 'VENTAS', '1'),
+(2, 'LETRERO TRASERO', 'POLLO LOPEZ', '2019/05/05', '2019/06/05', 'MARTIN MARTINEZ', 'VENTAS', '1'),
+(3, 'LETREROS ESPECTACULARES', 'NORSON', '2019/05/01', '2019/08/10', 'HERMOSILLO', 'VENTAS', '1');
 
 -- --------------------------------------------------------
 
@@ -220,7 +209,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `cat_niveles`
@@ -238,13 +227,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `letreros`
 --
 ALTER TABLE `letreros`
-  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

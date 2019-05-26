@@ -12,8 +12,10 @@ class Archivos_model extends CI_Model {
     public function get_archivos()
     {
         
+        $this->db->select('*');
         $this->db->from('archivos');
         $this->db->where('activo',1);
+        //$this->db->where('');
         
         $query = $this->db->get();
 
