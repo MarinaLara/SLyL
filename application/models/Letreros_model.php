@@ -9,13 +9,15 @@ class Letreros_model extends CI_Model {
         parent::__construct();
     }
 
-    public function get_letreros()
+    public function get_letreros($proyecto)
     {
-
+        $this->db->select('id_letrero, proyectos.nombre_proyecto, nombre_letrero, fecha_ini, fecha_fi, descripcion, proyectos. creador_proyecto,letreros.id_proyecto');
         $this->db->from('letreros');
-        $this->db->where('activo',1);
-
-        $query = $this->db->get();
+        $this->db->where('letreros.id_proyecto',$proyecto);
+        $this->db->join('proyectos','letreros.id_proyecto=proyectos.id_proyecto', 'inner');
+        $this->db->where('letreros.activo', 1);
+        
+        $query=$this->db->get();
 
         if($query->num_rows() > 0)
         {
@@ -29,6 +31,7 @@ class Letreros_model extends CI_Model {
      public function get_letreros_by_id($id_letrero)
     {
         
+        $this->db->select('*');
         $this->db->from('letreros');
         $this->db->where('id_letrero',$id_letrero);
         

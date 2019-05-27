@@ -11,11 +11,14 @@ class Letreros extends CI_Controller {
 
 	public function index()
 	{
+		//obtener variable por url param
+		$proyecto = $this->input->get('proyecto');;
 		
 		if($this->session->userdata('logueado') == TRUE)
 		{
 			$data = array(
-				'DATA_LETREROS' => $this->Letreros_model->get_letreros(),
+				'DATA_LETREROS' => $this->Letreros_model->get_letreros($proyecto),
+				'ID_Proyecto'=>$proyecto,
 			);
 
 			$this->load->view('headers/librerias');
@@ -31,11 +34,15 @@ class Letreros extends CI_Controller {
 
 	public function add_letreros()
 	{
+		$proyecto = $this->input->get('proyecto');
 		if($this->session->userdata('logueado') == TRUE)
 		{
+			$data = array(
+				'ID_Proyecto'=>$proyecto,
+			);
 			$this->load->view('headers/librerias');
 			$this->load->view('headers/menu');
-			$this->load->view('letreros/add_letreros');
+			$this->load->view('letreros/add_letreros',$data);
 			$this->load->view('footers/librerias');
 		}else
 		{
@@ -70,8 +77,8 @@ class Letreros extends CI_Controller {
 			
 			$data = array(				
 				'nombre_letrero' => trim($this->input->post('nombre_letrero')),
-				'fecha_inicio' => trim($this->input->post('fecha_inicio')),
-				'fecha_final' => trim($this->input->post('fecha_final')),
+				'fecha_ini' => trim($this->input->post('fecha_ini')),
+				'fecha_fi' => trim($this->input->post('fecha_fi')),
 				'descripcion' => trim($this->input->post('descripcion')),
 			);
 
@@ -87,9 +94,10 @@ class Letreros extends CI_Controller {
 		if($this->input->is_ajax_request()){
 			$data = array(				
 				'nombre_letrero' => trim($this->input->post('nombre_letrero')),
-				'fecha_inicio' => trim($this->input->post('fecha_inicio')),
-				'fecha_final' => trim($this->input->post('fecha_final')),
+				'fecha_ini' => trim($this->input->post('fecha_ini')),
+				'fecha_fi' => trim($this->input->post('fecha_fi')),
 				'descripcion' => trim($this->input->post('descripcion')),
+				'id_proyecto' => trim($this->input->post('id_proyecto')),
 			);
 			$this->Letreros_model->insert_letreros($data);
 			echo json_encode($data);

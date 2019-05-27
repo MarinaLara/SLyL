@@ -11,11 +11,13 @@ class Archivos extends CI_Controller {
 
 	public function index()
 	{
+		$letrero = $this->input->get('letrero');;
 		
 		if($this->session->userdata('logueado') == TRUE)
 		{
 			$data = array(
-				'DATA_ARCHIVO' => $this->Archivos_model->get_archivos(),
+				'DATA_ARCHIVO' => $this->Archivos_model->get_archivos($letrero),
+				'ID_Letrero' => $letrero,
 			);
 
 			$this->load->view('headers/librerias');
@@ -31,11 +33,15 @@ class Archivos extends CI_Controller {
 
 	public function add_archivo()
 	{
+		$letrero = $this->input->get('letrero');
 		if($this->session->userdata('logueado') == TRUE)
 		{
+			$data = array(
+				'ID_Letrero'=>$letrero,
+			);
 			$this->load->view('headers/librerias');
 			$this->load->view('headers/menu');
-			$this->load->view('archivos/add_archivos');
+			$this->load->view('archivos/add_archivos', $data);
 			$this->load->view('footers/librerias');
 		}else
 		{
@@ -48,10 +54,9 @@ class Archivos extends CI_Controller {
 	public function crear_archivo()
 	{
 		
-		//OBTENERE EL ID DE ARCHIVO 
-		$nombre_archivo = $this->input->post('nombre_archivo');
 		$data = array(
-			'nombre_archivo' => $nombre_archivo,
+			'nombre_archivo' => $this->input->post('nombre_archivo'),
+			'id_letrero'=> $this->input->post('id_letrero'),
 			'activo' => 1,	
 		);
 		$this->Archivos_model->insert_archivos($data);	
@@ -116,24 +121,24 @@ class Archivos extends CI_Controller {
  //        }
 	// }
 
-	public function editar_cliente()
-	{
-		if($this->input->is_ajax_request()){
-			$id_cliente = $this->input->post('id_cliente');
+	// public function editar_cliente()
+	// {
+	// 	if($this->input->is_ajax_request()){
+	// 		$id_cliente = $this->input->post('id_cliente');
 			
-			$data = array(				
-				'nombre_cliente' => trim($this->input->post('nombre_cliente')),
-				'correo_cliente' => trim($this->input->post('correo_cliente')),
-				'telefono_cliente' => trim($this->input->post('telefono_cliente')),
-				'fecha_nacimiento' => trim($this->input->post('fecha_nacimiento')),
-			);
+	// 		$data = array(				
+	// 			'nombre_cliente' => trim($this->input->post('nombre_cliente')),
+	// 			'correo_cliente' => trim($this->input->post('correo_cliente')),
+	// 			'telefono_cliente' => trim($this->input->post('telefono_cliente')),
+	// 			'fecha_nacimiento' => trim($this->input->post('fecha_nacimiento')),
+	// 		);
 
-			$this->Clientes_model->update_cliente($data,$id_cliente);
-			var_dump($data);
-		}else{
-            show_404();
-        }
-	}
+	// 		$this->Clientes_model->update_cliente($data,$id_cliente);
+	// 		var_dump($data);
+	// 	}else{
+ //            show_404();
+ //        }
+	// }
 
 	
 

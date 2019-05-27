@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2019 a las 06:38:45
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 27-05-2019 a las 09:14:31
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,18 +34,20 @@ CREATE TABLE `archivos` (
   `id_archivo` int(11) NOT NULL,
   `nombre_archivo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
-  `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_letrero` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `archivos`
 --
 
-INSERT INTO `archivos` (`id_archivo`, `nombre_archivo`, `activo`, `path`) VALUES
-(11, 'Quattuor', '0', '/files/12.png'),
-(9, 'test', '0', '/files/10.jpg'),
-(10, 'Arya', '0', '/files/11.jpg'),
-(12, 'imagen', '0', '/files/13.jpg');
+INSERT INTO `archivos` (`id_archivo`, `nombre_archivo`, `activo`, `path`, `id_letrero`) VALUES
+(19, 'qwer', '1', '', 12),
+(20, 'Arya', '1', '', 13),
+(21, 'Leon', '1', '', 13),
+(22, 'Nuevo', '1', '', 14),
+(23, 'datos2', '1', '', 13);
 
 -- --------------------------------------------------------
 
@@ -102,26 +104,23 @@ INSERT INTO `clientes` (`id_cliente`, `correo_cliente`, `nombre_cliente`, `telef
 
 CREATE TABLE `letreros` (
   `id_letrero` int(11) NOT NULL,
-  `nombre_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nombre_letrero` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_final` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_ini` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_fi` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  `id_proyecto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `letreros`
 --
 
-INSERT INTO `letreros` (`id_letrero`, `nombre_proyecto`, `nombre_letrero`, `fecha_inicio`, `fecha_final`, `descripcion`, `creador_proyecto`, `activo`) VALUES
-(9, NULL, 'GATO', '2019/05/20', '2019/05/29', '', NULL, '0'),
-(8, NULL, 'GATO', '2019/05/20', '2019/05/27', '', NULL, '1'),
-(10, NULL, 'PERRO', '2019/05/27', '2019/05/30', '', NULL, '0'),
-(11, NULL, 'GATO', '2019/06/02', '2019/06/05', '', NULL, '0'),
-(12, NULL, 'GATO', '2019/06/03', '2019/06/05', '', NULL, '1'),
-(13, NULL, 'PERRO', '2019/06/03', '2019/06/05', 'OTRO GATO', NULL, '0');
+INSERT INTO `letreros` (`id_letrero`, `nombre_letrero`, `fecha_ini`, `fecha_fi`, `descripcion`, `activo`, `id_proyecto`) VALUES
+(12, 'GATO', '2019/06/04', '2019/06/06', 'CABALLO', '0', 1),
+(13, 'GATO', '2019/05/27', '2019/05/23', 'PERRO1', '1', 1),
+(14, 'CABALLO', '2019/06/04', '2019/06/06', 'UN TIGRE FEO', '1', 1),
+(15, 'CABALLO', '2019/06/04', '2019/06/07', 'PERRO1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -130,6 +129,7 @@ INSERT INTO `letreros` (`id_letrero`, `nombre_proyecto`, `nombre_letrero`, `fech
 --
 
 CREATE TABLE `proyectos` (
+  `id_proyecto` int(11) NOT NULL,
   `nombre_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `nombre_cliente` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fecha_inicio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -137,15 +137,17 @@ CREATE TABLE `proyectos` (
   `creador_proyecto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fase_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VENTAS',
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `proyectos`
 --
 
-INSERT INTO `proyectos` (`nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
-('LETRERO LATERAL DERECHO', 'JOEL GAONA', '2019/05/13', '2019/05/21', 'ANGEL BANUET', 'VENTAS', '1'),
-('CARRO', 'PERRO', '2019/05/28', '2019/05/31', 'JOEL GAONA', 'VENTAS', '1');
+INSERT INTO `proyectos` (`id_proyecto`, `nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
+(1, 'LETRERO LATERAL', 'CAFFENIO', '2019/05/19', '2019/06/08', 'VALENZUELA HERMANOS', 'VENTAS', '1'),
+(2, 'LETRERO TRASERO', 'POLLO LOPEZ', '2019/05/05', '2019/06/05', 'MARTIN MARTINEZ', 'VENTAS', '1'),
+(3, 'LETREROS ESPECTACULARES', 'NORSON', '2019/05/01', '2019/08/10', 'HERMOSILLO', 'VENTAS', '1'),
+(4, 'LETRERO TRASERO', 'NISSAN', '2019/06/03', '2019/06/06', 'JOEL GAONA', 'VENTAS', '1');
 
 -- --------------------------------------------------------
 
@@ -179,7 +181,8 @@ INSERT INTO `usuarios` (`id_usuario`, `usuario_email`, `nombre`, `apellido_p`, `
 -- Indices de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  ADD PRIMARY KEY (`id_archivo`);
+  ADD PRIMARY KEY (`id_archivo`),
+  ADD KEY `id_letrero` (`id_letrero`);
 
 --
 -- Indices de la tabla `cat_niveles`
@@ -198,13 +201,13 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `letreros`
   ADD PRIMARY KEY (`id_letrero`),
-  ADD KEY `nombre_proyecto` (`nombre_proyecto`);
+  ADD KEY `id_proyecto` (`id_proyecto`);
 
 --
 -- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  ADD PRIMARY KEY (`nombre_proyecto`);
+  ADD PRIMARY KEY (`id_proyecto`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -221,7 +224,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `cat_niveles`
@@ -239,13 +242,35 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `letreros`
 --
 ALTER TABLE `letreros`
-  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `archivos`
+--
+ALTER TABLE `archivos`
+  ADD CONSTRAINT `archivos_ibfk_1` FOREIGN KEY (`id_letrero`) REFERENCES `letreros` (`id_letrero`);
+
+--
+-- Filtros para la tabla `letreros`
+--
+ALTER TABLE `letreros`
+  ADD CONSTRAINT `letreros_ibfk_1` FOREIGN KEY (`id_proyecto`) REFERENCES `proyectos` (`id_proyecto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

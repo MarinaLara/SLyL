@@ -22,6 +22,7 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
+									
 									<th><center>Nombre Del Proyecto</center></th>
 									<th><center>Nombre Del Cliente</center></th>
 									<th><center>Fecha De Inicio</center></th>
@@ -35,8 +36,8 @@
 								<?php if($DATA_PROYECTOS != FALSE) {
 									foreach ($DATA_PROYECTOS->result() as $row) {
 								?>
-									<tr id="tr_<?= $row->nombre_proyecto;?>" name="tr_<?= $row->nombre_proyecto; ?>" >
-										<td><center><a href="<?=base_url()?>letreros"><?= $row->nombre_proyecto;?></a></center></td>
+									<tr id="tr_<?= $row->id_proyecto;?>" name="tr_<?= $row->id_proyecto; ?>" >
+										<td><center><a href="<?=base_url()?>letreros?proyecto=<?=$row->id_proyecto?>"><?= $row->nombre_proyecto;?></a></center></td>
 										<td><center>
 											<?= $row->nombre_cliente;?>
 										</center></td>
@@ -53,8 +54,8 @@
 											<?= $row->fase_proyecto;?>
 										</center></td>
 										<td><center>
-											<button data-id="<?= $row->nombre_proyecto; ?>" class="btn btn-primary editar_proyecto"  data-toggle="modal" data-target="#modal_proyecto_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Proyecto" ></span></button>
-											<button data-id="<?= $row->nombre_proyecto; ?>" class="btn btn-danger eliminar_proyecto" title="Eliminar Proyecto" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button>
+											<button data-id="<?= $row->id_proyecto; ?>" class="btn btn-primary editar_proyecto"  data-toggle="modal" data-target="#modal_proyecto_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Proyecto" ></span></button>
+											<button data-id="<?= $row->id_proyecto; ?>" class="btn btn-danger eliminar_proyecto" title="Eliminar Proyecto" data-toggle="tooltip" data-placement="top">  <i class="fa fa-close"></i></button>
 										</center></td>
 									</tr>
 								<?php

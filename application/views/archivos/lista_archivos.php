@@ -5,7 +5,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><u><a href="<?=base_url()?>index.php/main"><i class="fa fa-dashboard"></i> Inicio</a></u></li>
-        <li><u><a href="<?=base_url()?>archivos">Archivos</a></u></li>
+        <li><u><a href="<?=base_url()?>letreros><i class="fa fa-file"></i> Letreros</a></u></li>
       </ol>
     </section>
 	<section class="content">
@@ -14,7 +14,7 @@
 	          	<div class="box">
 		            <div class="box-header">
 		            	<div class="col-lg-offset-10">
-		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>archivos/add_archivo"><i class="fa fa-plus"></i> Nuevo Archivo</a>
+		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>archivos/add_archivo?letrero=<?=$ID_Letrero?>"><i class="fa fa-plus"></i> Nuevo Archivo</a>
 		              	</div>
 			        </div>
 			    </div>
@@ -37,7 +37,7 @@
 											<center><?= $row->id_archivo;?></center>
 										</td>
 										<td>
-											<a href="<?=base_url().$row->path?>" target="_blank">
+											
 											<center><i class="fa fa-file">&nbsp<?= $row->nombre_archivo;?></i></center>
 											</a>
 										</td>

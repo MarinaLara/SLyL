@@ -27,14 +27,15 @@ var proyectos = {
     datos_editar_proyectos: function(){
         $(document).on('click','button.editar_proyecto', function () {
             
-            var data = {nombre_proyecto: $(this).data('id')};    
+            var data = {id_proyecto: $(this).data('id')};    
             var response = cargar_ajax.run_server_ajax('proyectos/datos_editar_proyecto', data);
 
-            $('#txt_nombre_pro_editar').val(response.DATA_PROYECTO.nombre_proyecto);
-            $('#txt_nom_cliente_editar').val(response.DATA_PROYECTO.nombre_cliente);
-            $('#txt_fecha_in_editar').val(response.DATA_PROYECTO.fecha_inicio);
-            $('#txt_fecha_fin_editar').val(response.DATA_PROYECTO.fecha_final);
-            $('#txt_creador_pro_editar').val(response.DATA_PROYECTO.creador_proyecto);
+            $('#id_proyecto_editar').val(response.DATA_PROYECTOS.id_proyecto);
+            $('#txt_nombre_pro_editar').val(response.DATA_PROYECTOS.nombre_proyecto);
+            $('#txt_nom_cliente_editar').val(response.DATA_PROYECTOS.nombre_cliente);
+            $('#txt_fecha_in_editar').val(response.DATA_PROYECTOS.fecha_inicio);
+            $('#txt_fecha_fin_editar').val(response.DATA_PROYECTOS.fecha_final);
+            $('#txt_creador_pro_editar').val(response.DATA_PROYECTOS.creador_proyecto);
             
 
         });
@@ -45,6 +46,7 @@ var proyectos = {
             e.preventDefault();
                 var data = 
                 {
+                    id_proyecto: $('#id_proyecto_editar').val(),
                     nombre_proyecto : $('#txt_nombre_pro_editar').val(), 
                     nombre_cliente : $('#txt_nom_cliente_editar').val(), 
                     fecha_inicio : $('#txt_fecha_in_editar').val(), 
@@ -79,8 +81,8 @@ var proyectos = {
 
     eliminar_proyecto: function(){
         $(document).on('click', 'button.eliminar_proyecto', function () {
-            var nombre_proyecto = $(this).data('id');
-            var data = {nombre_proyecto: nombre_proyecto};
+            var id_proyecto = $(this).data('id');
+            var data = {id_proyecto: id_proyecto};
 
             swal({
                 title: "Esta SEGURO DE ELIMINAR ESTE PROYECTO?",
@@ -94,7 +96,7 @@ var proyectos = {
             }, function () {
                 cargar_ajax.run_server_ajax('proyectos/eliminar_proyecto', data);
                 swal('Eliminado!', 'Se elimino correctamente el proyecto', 'success');
-                var toDelete = '#tr_' + nombre_proyecto;
+                var toDelete = '#tr_' + id_proyecto;
                 console.log(toDelete);
                 $(toDelete).remove();
                 

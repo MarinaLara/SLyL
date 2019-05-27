@@ -6,11 +6,11 @@ var letreros = {
             form.preventDefault();
             
             var data = {
-                nombre_proyecto : $('#txt_nombre_pro').val(), 
                 nombre_letrero : $('#txt_nom_letrero').val(), 
-                fecha_inicio : $('#txt_fecha_in').val(), 
-                fecha_final : $('#txt_fecha_fin').val(),
+                fecha_ini : $('#txt_fecha_ini').val(), 
+                fecha_fi : $('#txt_fecha_fi').val(), 
                 descripcion : $('#txt_descripcion').val(), 
+                id_proyecto: $('#id_proyecto').val(),
             }
             cargar_ajax.run_server_ajax('letreros/crear_letrero', data);
             swal({
@@ -19,10 +19,11 @@ var letreros = {
                     type: 'success',
                     closeOnConfirm: false
                 },function(){
-                    window.location.assign(base_url + 'letreros');
+                    window.location.assign(base_url + 'letreros?proyecto='+$('#id_proyecto').val());
                 });
         });
     },
+
 
     datos_editar_letreros: function(){
         $(document).on('click','button.editar_letrero', function () {
@@ -30,10 +31,11 @@ var letreros = {
             var data = {id_letrero: $(this).data('id')};    
             var response = cargar_ajax.run_server_ajax('letreros/datos_editar_letrero', data);
 
+            $('#id_letrero_editar').val(response.DATA_LETREROS.id_letrero);
             $('#txt_nom_letrero_editar').val(response.DATA_LETREROS.nombre_letrero);
-            $('#txt_fecha_in_editar').val(response.DATA_LETREROS.fecha_inicio);
-            $('#txt_fecha_fin_editar').val(response.DATA_LETREROS.fecha_final);
-            $('#txt_descripcion_editar').val(response.DATA_LETREROS.descipcion);
+            $('#txt_fecha_ini_editar').val(response.DATA_LETREROS.fecha_ini);
+            $('#txt_fecha_fi_editar').val(response.DATA_LETREROS.fecha_fi);
+            $('#txt_descripcion_editar').val(response.DATA_LETREROS.descripcion);
             
 
         });
@@ -44,10 +46,11 @@ var letreros = {
             e.preventDefault();
                 var data = 
                 {
+                    id_letrero: $('#id_letrero_editar').val(),
                     nombre_letrero : $('#txt_nom_letrero_editar').val(), 
-                    fecha_inicio : $('#txt_fecha_in_editar').val(), 
-                    fecha_final : $('#txt_fecha_fin_editar').val(),
-                    creador_proyecto : $('#txt_descripcion_editar').val(),  
+                    fecha_ini : $('#txt_fecha_ini_editar').val(), 
+                    fecha_fi : $('#txt_fecha_fi_editar').val(),
+                    descripcion : $('#txt_descripcion_editar').val(),  
                     
                 }
                 

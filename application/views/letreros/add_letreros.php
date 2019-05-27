@@ -19,6 +19,7 @@
 					</div>
 					<div class="box-body">
 						<form class="form-horizontal" name="agregar_letrero" id="agregar_letrero">
+							<input type="hidden"  id="id_proyecto" name="id_proyecto" value='<?=$ID_Proyecto?>'>
 				 			<div class="form-group">				 				
 						 		<div class="col-lg-4">
 						 			<label>Nombre De Letrero:</label>
@@ -36,7 +37,7 @@
 						                <div class="input-group-addon">
 						                	<i class="fa fa-calendar"></i>
 						                </div>
-						                <input type="text" class="form-control pull-right datetime" id="txt_fecha_in" name="txt_fecha_in" required="true" autocomplete="off" placeholder="yyyy-mm-dd">
+						                <input type="text" class="form-control pull-right datetime" id="txt_fecha_ini" name="txt_fecha_ini" required="true" autocomplete="off" placeholder="yyyy-mm-dd">
 					                </div>
 					                <!-- /.input group -->
 						           </div>
@@ -46,10 +47,10 @@
 						                <div class="input-group-addon">
 						                	<i class="fa fa-calendar"></i>
 						                </div>
-						                <input type="text" class="form-control pull-right datetime" id="txt_fecha_fin" name="txt_fecha_fin"  autocomplete="off" placeholder="yyyy-mm-dd">
+						                <input type="text" class="form-control pull-right datetime" id="txt_fecha_fi" name="txt_fecha_fi"  autocomplete="off" placeholder="yyyy-mm-dd">
 						            </div>
 						 		</div>
-						 	</div>						 			
+						 	</div>	
 						 	<br/><br/><br/><br/>
 						 	<hr>
 						 	<div class="row col-lg-4" style="margin-top: 25px;">

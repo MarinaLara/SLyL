@@ -50,9 +50,9 @@ class Proyectos extends CI_Controller {
 		if($this->input->is_ajax_request())
 		{
 			
-			$nombre_proyecto = $this->input->post('nombre_proyecto');
+			$id_proyecto = $this->input->post('id_proyecto');
 			$data = array(
-				'DATA_PROYECTOS' => $this->Proyectos_model->get_proyectos_by_name($nombre_proyecto),
+				'DATA_PROYECTOS' => $this->Proyectos_model->get_proyectos_by_id($id_proyecto),
 			);
 			//var_dump($data);
 			echo json_encode($data);
@@ -66,7 +66,7 @@ class Proyectos extends CI_Controller {
 	public function editar_proyecto()
 	{
 		if($this->input->is_ajax_request()){
-			$nombre_proyecto = $this->input->post('nombre_proyecto');
+			$id_proyecto = $this->input->post('id_proyecto');
 			
 			$data = array(				
 				'nombre_proyecto' => trim($this->input->post('nombre_proyecto')),
@@ -76,7 +76,7 @@ class Proyectos extends CI_Controller {
 				'creador_proyecto' => trim($this->input->post('creador_proyecto')),
 			);
 
-			$this->Proyectos_model->update_proyecto($data,$nombre_proyecto);
+			$this->Proyectos_model->update_proyecto($data,$id_proyecto);
 			var_dump($data);
 		}else{
             show_404();
@@ -104,11 +104,11 @@ class Proyectos extends CI_Controller {
 	{
 		if($this->input->is_ajax_request()){
 
-			$nombre_proyecto = $this->input->post('nombre_proyecto');
+			$id_proyecto = $this->input->post('id_proyecto');
 			$data = array(
 				'activo' => 0,
 			);
-			$this->Proyectos_model->delete_proyecto($nombre_proyecto,$data);
+			$this->Proyectos_model->delete_proyecto($id_proyecto,$data);
 
 		}
 		else

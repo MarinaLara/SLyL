@@ -19,6 +19,7 @@
 					</div>
 					<div class="box-body">
 						<form action="<?=base_url()?>archivos/crear_archivo" method="post" enctype="multipart/form-data">
+							<input type="hidden"  id="id_letrero" name="id_letrero" value='<?=$ID_Letrero?>'>
 				 			<div class="form-group">
 				 				<label>Escrba el nombre del archivo</label>
 				 				<input type="text" class="form-control" id="nombre_archivo" name="nombre_archivo" required="true">
@@ -29,7 +30,7 @@
 				 			</div>
 						 	<div class="form-group">
 						 		<button type="submit" class="btn btn-primary">Guardar Archivo</button>
-						 		<a type="button" href="<?=base_url()?>index.php/archivos" class="btn btn-default">Cancelar</a>
+						 		<a type="button" href="<?=base_url()?>index.php/archivos class="btn btn-default">Cancelar</a>
 						 	</div>
 					 	</form>
 					</div>

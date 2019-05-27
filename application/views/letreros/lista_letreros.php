@@ -14,7 +14,7 @@
 	          	<div class="box">
 		            <div class="box-header">
 		            	<div class="col-lg-offset-10">
-		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>letreros/add_letreros"><i class="fa fa-plus"></i> Nuevo Letrero</a>
+		              		<a type="button" class="btn btn-block btn-primary" href="<?=base_url()?>letreros/add_letreros?proyecto=<?=$ID_Proyecto?>"><i class="fa fa-plus"></i> Nuevo Letrero</a>
 		              	</div>
 			        </div>
 			    </div>
@@ -23,7 +23,7 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th><center>ID</center></th>
+									
 									<th><center>Nombre Del Proyecto</center></th>
 									<th><center>Nombre Del Letrero</center></th>
 									<th><center>Fecha de Inicio</center></th>
@@ -38,18 +38,15 @@
 								foreach ($DATA_LETREROS->result() as $row) {
 								?>
 									<tr id="tr_<?= $row->id_letrero;?>" name="tr_<?= $row->id_letrero; ?>" >
-										<td><center><a href="<?=base_url()?>archivos"><?= $row->id_letrero;?></a></center></td>
+										<td><center><?= $row->nombre_proyecto;?></center></td>
 										<td><center>
-											<?= $row->nombre_proyecto;?>
-										</center></td>	
-										<td><center>
-											<?= $row->nombre_letrero;?>
+											<a href="<?=base_url()?>archivos?letrero=<?=$row->id_letrero?>"><?= $row->nombre_letrero;?></a>
 										</center></td>
 										<td><center>
-											<?= $row->fecha_inicio;?>
+											<?= $row->fecha_ini;?>
 										</center></td>
 										<td><center>
-											<?= $row->fecha_final;?>
+											<?= $row->fecha_fi;?>
 										</center></td>
 										<td><center>
 											<?= $row->descripcion;?>
@@ -57,6 +54,7 @@
 										<td><center>
 											<?= $row->creador_proyecto;?>
 										</center></td>
+										
 										<td><center>
 											<button data-id="<?= $row->id_letrero; ?>" class="btn btn-primary editar_letrero"  data-toggle="modal" data-target="#modal_letrero_editar" ><i class="fa fa-edit"></i><span data-toggle="tooltip" data-placement="top" title="Modificar Letrero" ></span></button>
 
@@ -65,7 +63,7 @@
 									</tr>
 								<?php
 									}
-								} ?>
+								 }?>
 							</tbody> 
 						</table>
 					</div>
@@ -100,11 +98,11 @@
 					<div class="row" style="margin-top: 30px;">
 						<div class="form-group col-lg-4">
 				 			<label >Fecha De Inicio:</label>
-							<input type="text" class="form-control datetime" required id="txt_fecha_in_editar" name="txt_fecha_in_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
+							<input type="text" class="form-control datetime" required id="txt_fecha_ini_editar" name="txt_fecha_ini_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="true">
 				 		</div>
 				 		<div class="form-group col-lg-4">
 				 			<label >Fecha Final:</label>
-							<input type="text" class="form-control datetime" required id="txt_fecha_fin_editar" name="txt_fecha_fin_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="false">
+							<input type="text" class="form-control datetime" required id="txt_fecha_fi_editar" name="txt_fecha_fi_editar" placeholder="yyyy-mm-dd" maxlength="150" autocomplete="off" required="false">
 				 		</div>	
 	 				</div>
 	 				<hr>

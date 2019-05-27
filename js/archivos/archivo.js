@@ -1,4 +1,26 @@
 var archivos = {
+    add_archivo: function(){
+        $('#agregar_archivo').on('submit', function(form){
+            
+            form.preventDefault();
+            
+            var data = { 
+                nombre_archivo: $('#nombre_archivo').val(),
+                id_letrero: $('#id_proyecto').val(),
+            }
+            cargar_ajax.run_server_ajax('archivos/crear_archivo', data);
+            swal({
+                    title: 'CORRECTO',
+                    text: 'SE AGREGO CORRECTAMENTE EL ARCHIVO',
+                    type: 'success',
+                    closeOnConfirm: false
+                },function(){
+                    window.location.assign(base_url + 'archivos?letrero='+$('#id_letrero').val());
+                });
+        });
+
+
+
 	eliminar_archivo: function(){
         $(document).on('click', 'button.eliminar_archivo', function () {
             var id_archivo = $(this).data('id');

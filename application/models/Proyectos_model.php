@@ -13,7 +13,7 @@ class Proyectos_model extends CI_Model {
     {
 
         $this->db->from('proyectos');
-        $this->db->where('activo',1);
+        $this->db->where('proyectos.activo',1);
 
         $query = $this->db->get();
 
@@ -26,11 +26,11 @@ class Proyectos_model extends CI_Model {
             return FALSE;
         }
     }
-    public function get_proyectos_by_name($nombre_proyecto)
+    public function get_proyectos_by_id($id_proyecto)
     {
         
         $this->db->from('proyectos');
-        $this->db->where('nombre_proyecto',$nombre_proyecto);
+        $this->db->where('id_proyecto',$id_proyecto);
         
         
         $query = $this->db->get();
@@ -44,9 +44,9 @@ class Proyectos_model extends CI_Model {
         }
     }
 
-    public function update_proyecto($data,$nombre_proyecto)
+    public function update_proyecto($data,$id_proyecto)
     {
-        $this->db->where('nombre_proyecto', $nombre_proyecto);
+        $this->db->where('id_proyecto', $id_proyecto);
         $this->db->update('proyectos',$data);
     }
 
@@ -55,9 +55,9 @@ class Proyectos_model extends CI_Model {
         $this->db->insert('proyectos',$data);
     }
 
-    public function delete_proyecto($nombre_proyecto,$data)
+    public function delete_proyecto($id_proyecto,$data)
     {
-        $this->db->where('nombre_proyecto', $nombre_proyecto);
+        $this->db->where('id_proyecto', $id_proyecto);
         $this->db->update('proyectos',$data);
     }
  }
