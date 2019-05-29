@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2019 a las 09:14:31
--- Versión del servidor: 10.1.33-MariaDB
--- Versión de PHP: 7.2.6
+-- Tiempo de generación: 29-05-2019 a las 05:22:23
+-- Versión del servidor: 10.1.39-MariaDB
+-- Versión de PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,17 +37,6 @@ CREATE TABLE `archivos` (
   `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `id_letrero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `archivos`
---
-
-INSERT INTO `archivos` (`id_archivo`, `nombre_archivo`, `activo`, `path`, `id_letrero`) VALUES
-(19, 'qwer', '1', '', 12),
-(20, 'Arya', '1', '', 13),
-(21, 'Leon', '1', '', 13),
-(22, 'Nuevo', '1', '', 14),
-(23, 'datos2', '1', '', 13);
 
 -- --------------------------------------------------------
 
@@ -88,14 +77,6 @@ CREATE TABLE `clientes` (
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`id_cliente`, `correo_cliente`, `nombre_cliente`, `telefono_cliente`, `fecha_nacimiento`, `activo`) VALUES
-(9, 'joel.gaona.haro@gmail.com', 'JOEL GAONA', '6371222630', '2019/05/07', '1'),
-(11, 'joel.gaona.haro@gmail.com', 'DANIEL MORENO', '6371222630', '2019/01/17', '1');
-
 -- --------------------------------------------------------
 
 --
@@ -111,16 +92,6 @@ CREATE TABLE `letreros` (
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
   `id_proyecto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `letreros`
---
-
-INSERT INTO `letreros` (`id_letrero`, `nombre_letrero`, `fecha_ini`, `fecha_fi`, `descripcion`, `activo`, `id_proyecto`) VALUES
-(12, 'GATO', '2019/06/04', '2019/06/06', 'CABALLO', '0', 1),
-(13, 'GATO', '2019/05/27', '2019/05/23', 'PERRO1', '1', 1),
-(14, 'CABALLO', '2019/06/04', '2019/06/06', 'UN TIGRE FEO', '1', 1),
-(15, 'CABALLO', '2019/06/04', '2019/06/07', 'PERRO1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -138,16 +109,6 @@ CREATE TABLE `proyectos` (
   `fase_proyecto` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VENTAS',
   `activo` char(1) COLLATE utf8_unicode_ci DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `proyectos`
---
-
-INSERT INTO `proyectos` (`id_proyecto`, `nombre_proyecto`, `nombre_cliente`, `fecha_inicio`, `fecha_final`, `creador_proyecto`, `fase_proyecto`, `activo`) VALUES
-(1, 'LETRERO LATERAL', 'CAFFENIO', '2019/05/19', '2019/06/08', 'VALENZUELA HERMANOS', 'VENTAS', '1'),
-(2, 'LETRERO TRASERO', 'POLLO LOPEZ', '2019/05/05', '2019/06/05', 'MARTIN MARTINEZ', 'VENTAS', '1'),
-(3, 'LETREROS ESPECTACULARES', 'NORSON', '2019/05/01', '2019/08/10', 'HERMOSILLO', 'VENTAS', '1'),
-(4, 'LETRERO TRASERO', 'NISSAN', '2019/06/03', '2019/06/06', 'JOEL GAONA', 'VENTAS', '1');
 
 -- --------------------------------------------------------
 
@@ -224,7 +185,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_archivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `cat_niveles`
@@ -242,13 +203,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `letreros`
 --
 ALTER TABLE `letreros`
-  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_letrero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

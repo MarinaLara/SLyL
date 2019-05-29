@@ -11,13 +11,13 @@ class Archivos extends CI_Controller {
 
 	public function index()
 	{
-		$letrero = $this->input->get('letrero');;
+		$id_letrero =  $this->session->userdata('id_letrero');
 		
 		if($this->session->userdata('logueado') == TRUE)
 		{
 			$data = array(
-				'DATA_ARCHIVO' => $this->Archivos_model->get_archivos($letrero),
-				'ID_Letrero' => $letrero,
+				'DATA_ARCHIVO' => $this->Archivos_model->get_archivos($id_letrero),
+				'ID_Letrero' => $id_letrero,
 			);
 
 			$this->load->view('headers/librerias');
@@ -33,7 +33,8 @@ class Archivos extends CI_Controller {
 
 	public function add_archivo()
 	{
-		$letrero = $this->input->get('letrero');
+		//EL ADD CARGA LA VISTA EN EL QUE SUBIRAS EL ARCHIVO EL CREAR ESTAR INSERTANDO EN LA BASE DE DATOS
+		$letrero = $this->session->userdata('id_letrero');
 		if($this->session->userdata('logueado') == TRUE)
 		{
 			$data = array(
@@ -41,7 +42,7 @@ class Archivos extends CI_Controller {
 			);
 			$this->load->view('headers/librerias');
 			$this->load->view('headers/menu');
-			$this->load->view('archivos/add_archivos', $data);
+			$this->load->view('archivos/add_archivos',$data);
 			$this->load->view('footers/librerias');
 		}else
 		{
@@ -54,13 +55,14 @@ class Archivos extends CI_Controller {
 	public function crear_archivo()
 	{
 		
+		$id_letrero = $this->session->userdata('id_letrero');
 		$data = array(
 			'nombre_archivo' => $this->input->post('nombre_archivo'),
-			'id_letrero'=> $this->input->post('id_letrero'),
+			'id_letrero'=> $id_letrero,
 			'activo' => 1,	
 		);
 		$this->Archivos_model->insert_archivos($data);	
-		$DATA_ID = $this->Archivos_model->get_last_id();
+		$DATA_ID = $this->Archivos_model->get_last_id($id_letrero);
 		if($DATA_ID != FALSE)
 		{
 			foreach ($DATA_ID->result() as $row) 
@@ -75,7 +77,6 @@ class Archivos extends CI_Controller {
 		}
 
 
-
 		$config['upload_path'] = './files/';
         $config['allowed_types'] = '*';
         $config['max_size'] = 2000;
@@ -85,6 +86,7 @@ class Archivos extends CI_Controller {
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('archivo')) {
+            
             $path = '/files/'.$this->upload->data('file_name');
             $data = array(
             	'path'=> $path,

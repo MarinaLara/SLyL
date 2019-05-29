@@ -37,7 +37,7 @@
 									foreach ($DATA_PROYECTOS->result() as $row) {
 								?>
 									<tr id="tr_<?= $row->id_proyecto;?>" name="tr_<?= $row->id_proyecto; ?>" >
-										<td><center><a href="<?=base_url()?>letreros?proyecto=<?=$row->id_proyecto?>"><?= $row->nombre_proyecto;?></a></center></td>
+										<td><center><a href="<?=base_url()?>proyectos/letreros/<?=$row->id_proyecto?>"><?= $row->nombre_proyecto;?></a></center></td>
 										<td><center>
 											<?= $row->nombre_cliente;?>
 										</center></td>

@@ -40,7 +40,7 @@
 									<tr id="tr_<?= $row->id_letrero;?>" name="tr_<?= $row->id_letrero; ?>" >
 										<td><center><?= $row->nombre_proyecto;?></center></td>
 										<td><center>
-											<a href="<?=base_url()?>archivos?letrero=<?=$row->id_letrero?>"><?= $row->nombre_letrero;?></a>
+											<a href="<?=base_url()?>letreros/archivos/<?=$row->id_letrero?>"><?= $row->nombre_letrero;?></a>
 										</center></td>
 										<td><center>
 											<?= $row->fecha_ini;?>

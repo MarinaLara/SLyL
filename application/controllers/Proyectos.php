@@ -29,6 +29,15 @@ class Proyectos extends CI_Controller {
 		}
 	}
 
+	public function letreros()
+	{
+		$newdata = array(
+			'id_proyecto' => $this->uri->segment(3),
+		);
+		$this->session->set_userdata($newdata);
+		redirect('letreros/');
+	}
+
 	public function add_proyectos()
 	{
 		if($this->session->userdata('logueado') == TRUE)

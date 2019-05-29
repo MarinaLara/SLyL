@@ -11,7 +11,7 @@ class Archivos_model extends CI_Model {
 
     public function get_archivos($letrero)
     {
-        $this->db->select('id_archivo, nombre_archivo, archivos.id_letrero');   
+        $this->db->select('id_archivo, nombre_archivo, archivos.id_letrero,archivos.path');   
         //$this->db->select('*');
         $this->db->from('archivos');
         $this->db->join('letreros','archivos.id_letrero=letreros.id_letrero', 'inner');
@@ -35,16 +35,18 @@ class Archivos_model extends CI_Model {
         $this->db->insert('archivos',$data);
     }
 
-    public function get_last_id()
+
+    public function get_last_id($id_letrero)
     {
-        $this->db->select('*');
+        $this->db->select_max('id_archivo');
         $this->db->from('archivos');
-        $this->db->where('id_archivo');
+        $this->db->where('id_letrero',$id_letrero);
+        $this->db->where('activo',1);
 
         $query = $this->db->get();
         if($query->num_rows() > 0)
         {
-            return $query->row();
+            return $query;
         }
         else
         {

@@ -11,14 +11,14 @@ class Letreros extends CI_Controller {
 
 	public function index()
 	{
-		//obtener variable por url param
-		$proyecto = $this->input->get('proyecto');;
 		
+		$id_proyecto = $this->session->userdata('id_proyecto');
+
 		if($this->session->userdata('logueado') == TRUE)
 		{
 			$data = array(
-				'DATA_LETREROS' => $this->Letreros_model->get_letreros($proyecto),
-				'ID_Proyecto'=>$proyecto,
+				'DATA_LETREROS' => $this->Letreros_model->get_letreros($id_proyecto),
+				'ID_Proyecto'=>$id_proyecto,
 			);
 
 			$this->load->view('headers/librerias');
@@ -30,6 +30,15 @@ class Letreros extends CI_Controller {
 			$script = '';
 			$this->load->view('inicio/login',$script);
 		}
+	}
+
+	public function archivos()
+	{
+		$newdata = array(
+			'id_letrero' => $this->uri->segment(3),
+		);
+		$this->session->set_userdata($newdata);
+		redirect('archivos/');
 	}
 
 	public function add_letreros()
